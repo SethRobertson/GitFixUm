@@ -30,8 +30,8 @@ Due to previous activities (thrashing about), you may have lost some
 work which you would like to find and restore.  Alternately, you may
 have made some changes which you would like to fix.
 
-[Fix a change](#committedp)
-[Find what is lost](#lostnfound)
+* [Fix a change](#committedp)
+* [Find what is lost](#lostnfound)
 
 
 <a name="committedp" />
@@ -127,8 +127,8 @@ stashing them (`git stash save "message"`) or getting rid of them.
 `git status` will help you understand whether your working directory
 is clean or not.
 
-[My working directory is quite clean](#committed_really)
-[My working directory is filthy and I want to discard it](#uncommitted)
+* [My working directory is quite clean](#committed_really)
+* [My working directory is filthy and I want to discard it](#uncommitted)
 
 
 <a name="committed_really" />
@@ -287,3 +287,88 @@ handling of the situation.
 <a name="change_single_deep_simple" />
 <a name="pushed" />
 <a name="lostnfound" />
+
+<a name="copyright" />
+## Copyright
+
+Copyright ⓒ 2012 Seth Robertson
+
+Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
+
+http://creativecommons.org/licenses/by-sa/2.5/
+
+I would appreciate changes being sent back to me, being notified if
+this is used or highlighted in some special way, and links being
+maintained back to the authoritative source.  Thanks.
+
+
+<a name="thanks" />
+## Thanks
+
+Thanks to the experts on #git for review, feedback, and ideas.
+
+
+<a name="comments" />
+## Comments
+
+Comments and improvements welcome.
+
+Add them below, or discuss with SethRobertson (and others) on #git
+
+
+## Line eater fodder
+
+Because of my heavy use of anchors for navigation, and the utter lack
+of flexibility in the markup language this document is written in, it
+is important that the document be long enough at the bottom to
+complete fill your screen so that the item your link directed you to
+is at the top of the page.
+
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+Hopefully that should do it.
