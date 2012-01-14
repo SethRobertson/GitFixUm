@@ -30,7 +30,7 @@ Due to previous activities (thrashing about), you may have lost some
 work which you would like to find and restore.  Alternately, you may
 have made some changes which you would like to fix.
 
-[Fix a change](#commitedp)
+[Fix a change](#committedp)
 [Find what is lost](#lostnfound)
 
 
@@ -52,7 +52,7 @@ So you have not yet committed, the question is now whether you want to
 undo everything which you have done since the last commit or just some
 things?
 
-* [Discard dverything](#uncommitted_everything)
+* [Discard everything](#uncommitted_everything)
 * [Discard some things](#uncommitted_somethings)
 
 
@@ -62,7 +62,7 @@ things?
 So you have not yet committed and you want to undo everything.  Well,
 [best practice](https://gist.github.com/1540906) is for you to stash
 the changes in case you were mistaken and later decide that you really
-wanted them after all. `git stash save "description of changes"` You
+wanted them after all. `git stash save "description of changes"`. You
 can revisit those stashes later `git stash list` and decide whether to
 `git stash drop` them after some time has past.  Please note that
 untracked and ignored files are not stashed by default.  See
@@ -80,7 +80,8 @@ at once.  Well, actually those command do not delete the files.  They
 show what files will be deleted.  Replace the "n" in "-nd…" with "f"
 to actually delete the files.  [Best
 practice](https://gist.github.com/1540906) is to ensure you are not
-deleting what you should not.
+deleting what you should not by looking at the moribund filenames
+first.
 
 
 <a name="uncommitted_somethings">
@@ -106,7 +107,7 @@ So you have not yet committed and you want to undo some things, well
 #   (use "git add <file>..." to include in what will be committed)
 #
 #       C
-'''
+```
 
 However, the `git checkout` in file mode is a command that cannot be
 recovered from—the changes which are discarded most probably cannot be
@@ -127,7 +128,7 @@ stashing them (`git stash save "message"`) or getting rid of them.
 is clean or not.
 
 [My working directory is quite clean](#committed_really)
-[My working directory is filthy](#uncommitted)
+[My working directory is filthy and I want to discard it](#uncommitted)
 
 
 <a name="committed_really" />
@@ -136,6 +137,14 @@ is clean or not.
 So you have committed, the question is now whether you have made your
 changes publicly available or not.  Publishing history is seminal
 event.
+
+Please note in any and all events, the recipes provided here will
+typically (only one exception which will self-notify) only modify the
+current branch you are on.  Specifically any tags or branches
+involving the commit you are changing or a child or that commit will
+not be modified.  You must deal with those separately.  Look at `gitk
+--all --date-order` to help visualize everything what other git
+references might need to be updated.
 
 * [Yes, I pushed](#pushed)
 * [No, I did not push](#unpushed)
@@ -172,7 +181,7 @@ with the most recent commit.
 
 
 <a name="change_last" />
-## Do you want to remove the last commit, change the commit message, or change the contents?
+## Do you want to remove or change the commit message/contents of the last commit?
 
 * [I want to remove the last commit](#remove_last)
 * [I want to update the message/contents of the last commit](#update_last)
@@ -182,9 +191,9 @@ with the most recent commit.
 ## Removing the last commit
 
 To remove the last commit from git, you can simply run `git reset
---hard HEAD^` If you are removing multiple commits, you can run `git
-reset HEAD~2` to remove the last two commits.  You can increase the
-number to remove even more commits.
+--hard HEAD^` If you are removing multiple commits from the top, you
+can run `git reset HEAD~2` to remove the last two commits.  You can
+increase the number to remove even more commits.
 
 
 <a name="update_last" />
@@ -203,5 +212,78 @@ to avoid the `git add` suggested in the previous paragraph.
 
 
 <a name="change_deep" />
+## Do you want to remove an entire commit?
+
+* [I want to remove an entire commit](#remove_deep)
+* [I want to change an older commit](#change_deep)
+
+
+<a name="remove_deep" />
+## Removing an entire commit
+
+I call this operation "cherry-pit" since it is the inverse of a
+"cherry-pick".  You must first identify the SHA of the command you
+wish to remove.  You can do this using `gitk --date-order` or using
+`git log --graph --decorate --oneline` You are looking for the 40
+character SHA-1 hash ID (or the 7 character abbreviation).  Yes, if
+you know the "^" or "~" shortcuts you can use those.
+
+```shell
+git rebase -p --onto SHA^ SHA
+```
+
+Obviously replace "SHA" with the reference you want to get rid of.
+The "^" in that command is literal.
+
+However, please be warned.  If some of the commits between SHA and the
+tip of your branch are merge commits, it is possible that `git rebase`
+will be unable to properly recreate them.  Please inspect the
+resulting merge topology `gitk --date-order HEAD ORIG_HEAD` to ensure
+that git did want you wanted.  If it did not, there is not really any
+automated recourse.  You can reset back to the commit before the SHA
+you want to get rid of, and then cherry-pick the normal commits and
+manually re-merge the "bad" merges.  Or you can just suffer with the
+inappropriate topology (perhaps creating fake merges `git merge --ours
+otherbranch` so that subsequent development work on those branches
+will be properly merged in with the correct merge-base).
+
+<a name="change_deep" />
+## Do you want to remove/change/rename a particular file/directory from all commits during all of git's history
+
+* [Yes please, I want to make a change involving all git commits](#filterbranch)
+* [No, I only want to change a single commit](#change_single_deep)
+
+
+<a name="filterbranch" />
+## Changing all commits during all of git's history
+
+You have not pushed but still somehow want to change all commits in
+all of git's history?  Strange.
+
+You want to use the `git filter-branch` command to perform this
+action.  This command is quite involved and complex, so I will simply
+point you at the [manual page](http://jk.gs/git-filter-branch.html)
+and remind you that [best practice](https://gist.github.com/1540906)
+is to always use ` --tag-name-filter cat -- --all` unless you are
+really sure you know what you are doing.
+
+BTW, this is the one command I referred to earlier which will update
+all tags and branches, at least if you use the best practice
+arguments.
+
+<a name="change_single_deep" />
+## Is a merge commit involved?
+
+If the commit you are trying to change is a merge commit, or if there
+is a merge commit between the commit you are trying to change and the
+tip of the branch you are on, then you need to do some special
+handling of the situation.
+
+* [Yes, a merge commit is involved](#change_single_deep_merge)
+* [No, only simple commits](#change_single_deep_simple)
+
+
+<a name="change_single_deep_merge" />
+<a name="change_single_deep_simple" />
 <a name="pushed" />
 <a name="lostnfound" />
