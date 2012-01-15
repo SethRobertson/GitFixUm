@@ -319,63 +319,63 @@ You can delete it immediately after you are done.
 
 * Identify the SHA of the commit you wish to modify.
 
-You can do this using `gitk --date-order` or using `git log --graph
---decorate --oneline` You are looking for the 40 character SHA-1 hash
-ID (or the 7 character abbreviation).  Yes, if you know the "^" or "~"
-shortcuts you may use those.
+    You can do this using `gitk --date-order` or using `git log --graph
+    --decorate --oneline` You are looking for the 40 character SHA-1 hash
+    ID (or the 7 character abbreviation).  Yes, if you know the "^" or "~"
+    shortcuts you may use those.
 
 * Remember the name of the branch you are currently on
 
-The line with a star on it in the `git branch` output is the branch
-you are currently on.  I will use "$master" in this example, but
-substitute your branch name for "$master" in the following commands.
+    The line with a star on it in the `git branch` output is the branch
+    you are currently on.  I will use "$master" in this example, but
+    substitute your branch name for "$master" in the following commands.
 
 * Create and checkout a nonce branch pointing at that commit.
 
-```shell
+    ```shell
 git checkout nonce SHA
 ```
 
 * Modify the commit
 
-You need to get the index into the correct state you wish the commit
-to reflect.  If you are changing the commit message only, you need do
-nothing.  If you are changing the file contents, typically you would
-modify the working directory and use `git add` as normal.
+    You need to get the index into the correct state you wish the commit
+    to reflect.  If you are changing the commit message only, you need do
+    nothing.  If you are changing the file contents, typically you would
+    modify the working directory and use `git add` as normal.
 
-Once the index is in the correct state, then you can run `git commit
---amend` to update the last commit.  Yes, you can use "-a" if you want
-to avoid the `git add` suggested in the previous paragraph.
+    Once the index is in the correct state, then you can run `git commit
+    --amend` to update the last commit.  Yes, you can use "-a" if you want
+    to avoid the `git add` suggested in the previous paragraph.
 
-If the commit you are updating is a merge commit, ensure that the log
-message reflects that.
+    If the commit you are updating is a merge commit, ensure that the log
+    message reflects that.
 
 * Put the remaining commits after the new one you just created
 
-Remembering to substitute the correct branch name for $master
+    Remembering to substitute the correct branch name for $master
 
-```shell
+    ```shell
 git rebase -p --onto $(git rev-parse nonce) HEAD^ $master
 ```
 
 * Validate that the topology is still good
 
-If some of the commits after the commit you changed are merge commits,
-please be warned.  It is possible that `git rebase -p` will be unable to
-properly recreate them.  Please inspect the resulting merge topology
-`gitk --date-order HEAD ORIG_HEAD` to ensure that git did want you
-wanted.  If it did not, there is not really any automated recourse.
-You can reset back to the commit before the SHA you want to get rid
-of, and then cherry-pick the normal commits and manually re-merge the
-"bad" merges.  Or you can just suffer with the inappropriate topology
-(perhaps creating fake merges `git merge --ours otherbranch` so that
-subsequent development work on those branches will be properly merged
-in with the correct merge-base).
+    If some of the commits after the commit you changed are merge commits,
+    please be warned.  It is possible that `git rebase -p` will be unable to
+    properly recreate them.  Please inspect the resulting merge topology
+    `gitk --date-order HEAD ORIG_HEAD` to ensure that git did want you
+    wanted.  If it did not, there is not really any automated recourse.
+    You can reset back to the commit before the SHA you want to get rid
+    of, and then cherry-pick the normal commits and manually re-merge the
+    "bad" merges.  Or you can just suffer with the inappropriate topology
+    (perhaps creating fake merges `git merge --ours otherbranch` so that
+    subsequent development work on those branches will be properly merged
+    in with the correct merge-base).
 
 * Delete the nonce branch
 
-You don't need it.  It was just there to communicate an SHA between
-two steps in the above process.   `git branch -d nonce`
+    You don't need it.  It was just there to communicate an SHA between
+    two steps in the above process.   `git branch -d nonce`
 
 
 <a name="pushed" />
