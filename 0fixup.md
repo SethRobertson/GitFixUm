@@ -336,6 +336,8 @@ You can delete it immediately after you are done.
 git checkout nonce SHA
 ```
 
+    Obviously replace "SHA" with the reference you want to modify.
+
 * Modify the commit
 
     You need to get the index into the correct state you wish the commit
@@ -424,6 +426,7 @@ you know the "^" or "~" shortcuts you may use those.
 git checkout SHA -- path/to/filename
 ```
 
+Obviously replace "SHA" with the reference that is good.
 You can then add and commit as normal to fix the problem.
 
 
@@ -440,6 +443,8 @@ you know the "^" or "~" shortcuts you may use those.
 ```shell
 git revert SHA
 ```
+
+Obviously replace "SHA" with the reference you want to revert.
 
 
 <a name="pushed_new_merge" />
