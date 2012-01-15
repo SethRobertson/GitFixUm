@@ -206,6 +206,9 @@ If you are changing the commit message only, you need do nothing.  If
 you are changing the file contents, typically you would modify the
 working directory and use `git add` as normal.
 
+Note if you wish to restore a file to a known good state, you can use
+`git checkout GOODSHA -- path/to/filename`.
+
 Once the index is in the correct state, then you can run `git commit
 --amend` to update the last commit.  Yes, you can use "-a" if you want
 to avoid the `git add` suggested in the previous paragraph.
@@ -344,6 +347,9 @@ git checkout nonce SHA
     to reflect.  If you are changing the commit message only, you need do
     nothing.  If you are changing the file contents, typically you would
     modify the working directory and use `git add` as normal.
+
+    Note if you wish to restore a file to a known good state, you can use
+    `git checkout GOODSHA -- path/to/filename`.
 
     Once the index is in the correct state, then you can run `git commit
     --amend` to update the last commit.  Yes, you can use "-a" if you want
