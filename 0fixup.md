@@ -531,7 +531,7 @@ git commit -m "Rewrite $destination with $source"
 ```
 
 
-<a name="pushed_old />
+<a name="pushed_old" />
 ## I am a bad person and must rewrite published history
 
 Hopefully you read the previous reference and fully understand why
