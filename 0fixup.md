@@ -522,7 +522,7 @@ commit. Only one command is different and a second command runs at a
 different time.
 
 ```shell
-# Portable method to overwrite one branch with another
+# Portable method to overwrite one branch with another in two commits
 git clean -dfx
 git checkout $destination
 git reset --hard $source
@@ -531,9 +531,9 @@ git add -fA .
 git commit -m "Rewrite $destination with $source"
 git merge -s ours $source
 ```
-
+or
 ```shell
-# Hacky method to overwrite one branch with another
+# Hacky method to overwrite one branch with another in one commit
 git clean -dfx
 git checkout $destination
 git reset --hard $source
