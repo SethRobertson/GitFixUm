@@ -38,7 +38,7 @@ have made some changes which you would like to fix.
 ## Have you committed?
 
 If you have not yet committed that which you do not want, git does not
-know anything about what you have done, yet, so it is pretty easy to
+know anything about what you have done yet, so it is pretty easy to
 undo what you have done.
 
 * [Yes, I committed](#committed)
@@ -145,6 +145,13 @@ involving the commit you are changing or a child or that commit will
 not be modified.  You must deal with those separately.  Look at `gitk
 --all --date-order` to help visualize everything what other git
 references might need to be updated.
+
+Also note that these commands will fix up the referenced commits in
+your repository.  There will be reflog'd and dangling commits holding
+the state you just corrected.  This is normally a good thing and it
+will eventually go away by itself, but if for some reason you want to
+cut your seat belts, you can expire the reflog now and garbage collect
+with immediate pruning.
 
 * [Yes, I pushed](#pushed)
 * [No, I did not push](#unpushed)
