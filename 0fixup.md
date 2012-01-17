@@ -184,6 +184,7 @@ on the most recent, there are some convenient shortcuts you can take
 with the most recent commit.
 
 * [I want to change the most recent commit](#change_last)
+* [I want to undo the last git operation(s) affecting the HEAD/tip of my branch (most useful for rebase or reset)](#undo_tip)
 * [I want to change an older commit](#change_deep)
 
 
@@ -599,6 +600,38 @@ which have been `git add`ed but not attached to a commit for some
 (usually innocuous)reason.  `git fsck | grep "dangling blob" | while
 read x x s; do git show $s | less; done` will show you the files, one
 at a time.
+
+
+<a name="undo_tip" />
+## Undoing the last few git operations affecting HEAD/my branch's tip
+
+Practically every git operation which affects the repository is
+recorded in the git reflog.  You may then use the reflog to look at
+the state of the branches at previous times or even go back to the
+state of the local branch at the time.
+
+While this happens for every git command affecting HEAD, it is usually
+most interesting when attempting to recover from a bad rebase or
+reset.  There are better ways (listed by the rest of this document)
+from recovering from the more mundane reflog updates.
+
+The first thing you need to do is identify the SHA of the good state
+of your branch.  You can do this by looking at the output of `git log
+-g` or, my preference, you can look graphically at `gitk --all
+--date-order $(git log -g --pretty=%H)`
+
+Once you have found the correct state of your branch, you can get back
+to that state by running
+
+```shell
+git reset --hard SHA
+```
+Obviously replace "SHA" with the reference you want to get back to.
+
+Note that any other commits you have performed since you did that
+"bad" operation will then be lost.  You could `git cherry-pick` or
+`git rebase -p --onto` those other commits over.
+
 
 
 <a name="copyright" />
