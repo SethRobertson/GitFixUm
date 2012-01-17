@@ -42,6 +42,8 @@ know anything about what you have done yet, so it is pretty easy to
 undo what you have done.
 
 * [Yes, I committed](#committed)
+* [I am in the middle of a borked merge](#badmerge)
+* [I am in the middle of a borked rebase](#badrebase)
 * [No, I have not yet committed](#uncommitted)
 
 
@@ -632,6 +634,25 @@ Note that any other commits you have performed since you did that
 "bad" operation will then be lost.  You could `git cherry-pick` or
 `git rebase -p --onto` those other commits over.
 
+
+<a name="badmerge" />
+## Recovering from a borked/stupid/moribund merge
+
+So, you were in the middle of a merge, have encountered one or more
+conflicts, and you have now decided that it was a big mistake and want
+to get out of the merge.
+
+The fastest way out of the merge is `git merge --abort`
+
+
+<a name="badrebase" />
+## Recovering from a borked/stupid/moribund rebase
+
+So, you were in the middle of a rebase, have encountered one or more
+conflicts, and you have now decided that it was a big mistake and want
+to get out of the merge.
+
+The fastest way out of the merge is `git rebase --abort`
 
 
 <a name="copyright" />
