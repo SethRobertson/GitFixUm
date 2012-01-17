@@ -1,4 +1,4 @@
-# [On undoing, fixing, or removing commits in git]()
+# [On undoing, fixing, or removing commits in git](https://gist.github.com/1612395)
 
 This document is an attempt to be a fairly comprehensive guide to
 recovering from what you did not mean to do when using git.  It isn't
