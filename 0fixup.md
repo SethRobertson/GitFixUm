@@ -632,7 +632,14 @@ to that state by running
 ```shell
 git reset --hard SHA
 ```
-Obviously replace "SHA" with the reference you want to get back to.
+
+You could also link that old state to a new branch name using
+
+```shell
+git checkout -b newbranch SHA
+```
+
+Obviously replace "SHA" in both commands with the reference you want to get back to.
 
 Note that any other commits you have performed since you did that
 "bad" operation will then be lost.  You could `git cherry-pick` or
