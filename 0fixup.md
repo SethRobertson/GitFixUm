@@ -17,13 +17,17 @@ working directory and .git to avoid any possibility of losing data as
 a result of the use or misuse of these instructions. We promise to
 laugh at you if you fail to take a backup and regret it later.
 
-Proceed to the next section.  Afterwards, answer the questions posed
-by clicking the link for that section.  A section with no links (other
-than this one) is a terminal node and you should have solved your
-problem by completing the suggestions posed by that node.  This is not
-a document to read linearly.
+Answer the questions posed by clicking the link for that section.  A
+section with no links is a terminal node and you should have solved
+your problem by completing the suggestions posed by that node (if not,
+then report the chain of answers you made on #git or some other git
+resource and explain further why the proposed answer doesn't help).
+This is not a document to read linearly.
+
+[Proceed to the first question](#start)
 
 
+<a name="start" />
 ## Are you trying to find that which is lost or fix a change that was made?
 
 Due to previous activities (thrashing about), you may have lost some
