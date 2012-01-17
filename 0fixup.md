@@ -190,7 +190,7 @@ on the most recent, there are some convenient shortcuts you can take
 with the most recent commit.
 
 * [I want to change the most recent commit](#change_last)
-* [I want to undo the last git operation(s) affecting the HEAD/tip of my branch (most useful for rebase or reset)](#undo_tip)
+* [I want to undo the last git operation(s) affecting the HEAD/tip of my branch (most useful for rebase, reset, or --amend)](#undo_tip)
 * [I want to change an older commit](#change_deep)
 
 
@@ -618,7 +618,7 @@ state of the local branch at the time.
 
 While this happens for every git command affecting HEAD, it is usually
 most interesting when attempting to recover from a bad rebase or
-reset.  There are better ways (listed by the rest of this document)
+reset or an --amend'ed commit.  There are better ways (listed by the rest of this document)
 from recovering from the more mundane reflog updates.
 
 The first thing you need to do is identify the SHA of the good state
