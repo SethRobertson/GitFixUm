@@ -8,6 +8,13 @@ might have done is so large that different techniques are needed
 depending on exactly what you have done and what you want to have
 happen.
 
+If you have problems after clicking through this document, please
+document what the links you clicked on are when asking for further
+help (on #git or elsewhere) which will explain very precisely what you
+were trying to do and that you at least tried to help yourself.
+Sorry, due to the limitations of github we cannot gather the history
+for simple copy-paste.
+
 
 ## First step
 
