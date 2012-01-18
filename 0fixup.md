@@ -635,6 +635,15 @@ which have been `git add`ed but not attached to a commit for some
 read x x s; do git show $s | less; done` will show you the files, one
 at a time.
 
+Once you find the changes you are interested in, there are several
+ways you can proceed.  .  You can `git reset --hard SHA` your current
+branch to the history and current state of that SHA (probably not
+recommended for stashes), you can `git branch newbranch SHA` to link
+the old history to a new branch name (also not recommended for
+stashes), you can `git stash apply SHA` (for the non-index commit in a
+git-stash), you can `git stash merge SHA` or `git cherry-pick SHA`
+(for either part of a stash or non-stashes), etc.
+
 
 <a name="undo_tip" />
 ## Undoing the last few git operations affecting HEAD/my branch's tip
