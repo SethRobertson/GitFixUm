@@ -351,6 +351,11 @@ changing, is first.  You will want to change the "pick" to "reword" or
 "edit" depending on what your goal is.  Please read the [manual
 page](http://jk.gs/git-rebase.html) for more information.
 
+When using "edit", when you are dumped into the shell to make your
+change, well make your change, `git add` as normal, and then run `git
+commit --amend`.  When you are satisfied, you should run `git rebase
+--continue`
+
 
 <a name="change_single_deep_merge" />
 ## Changing a single commit involving a merge
