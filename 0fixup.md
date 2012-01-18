@@ -234,7 +234,7 @@ with the most recent commit.
 ## Do you want to remove or change the commit message/contents of the last commit?
 
 * [I want to remove the last commit](#remove_last)
-* [I want to update the message/contents of the last commit](#update_last)
+* [I want to update the author/message/contents of the last commit](#update_last)
 
 
 <a name="remove_last" />
@@ -252,19 +252,20 @@ branch newbranchname` BEFORE doing the `git reset`.
 <a name="update_last" />
 ## Updating the last commit's contents or commit message
 
-To update the last commit's contents or commit message for a commit
-which you have not pushed or otherwise published, first you need to
-get the index into the correct state you wish the commit to reflect.
-If you are changing the commit message only, you need do nothing.  If
-you are changing the file contents, typically you would modify the
-working directory and use `git add` as normal.
+To update the last commit's contents, author, or commit message for a
+commit which you have not pushed or otherwise published, first you
+need to get the index into the correct state you wish the commit to
+reflect.  If you are changing the commit message only, you need do
+nothing.  If you are changing the file contents, typically you would
+modify the working directory and use `git add` as normal.
 
 Note if you wish to restore a file to a known good state, you can use
 `git checkout GOODSHA -- path/to/filename`.
 
 Once the index is in the correct state, then you can run `git commit
 --amend` to update the last commit.  Yes, you can use "-a" if you want
-to avoid the `git add` suggested in the previous paragraph.
+to avoid the `git add` suggested in the previous paragraph.  You can
+also use --author to change the author information.
 
 
 <a name="change_deep" />
@@ -362,10 +363,11 @@ changing, is first.  You will want to change the "pick" to "reword" or
 "edit" depending on what your goal is.  Please read the [manual
 page](http://jk.gs/git-rebase.html) for more information.
 
-When using "edit", when you are dumped into the shell to make your
-change, well make your change, `git add` as normal, and then run `git
-commit --amend`.  When you are satisfied, you should run `git rebase
---continue`
+When using "edit", to change contents or author, when you are dumped
+into the shell to make your change, well make your change, `git add`
+as normal, and then run `git commit --amend` (including changing the
+author information with --author).  When you are satisfied, you should
+run `git rebase --continue`
 
 
 <a name="change_single_deep_merge" />
