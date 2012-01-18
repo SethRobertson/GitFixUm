@@ -45,9 +45,9 @@ If you have not yet committed that which you do not want, git does not
 know anything about what you have done yet, so it is pretty easy to
 undo what you have done.
 
+* [I am in the middle of a bad merge](#badmerge)
+* [I am in the middle of a bad rebase](#badrebase)
 * [Yes, I committed](#committed)
-* [I am in the middle of a borked merge](#badmerge)
-* [I am in the middle of a borked rebase](#badrebase)
 * [No, I have not yet committed](#uncommitted)
 
 
@@ -168,9 +168,14 @@ with immediate pruning.
 
 There is a shortcut in case you want to discard all changes made on
 this branch since you have last pushed or in any event, to make your
-local branch identical to "upstream".
+local branch identical to "upstream".  Upstream, for local tracking
+branches, is the place you get history from when you `git pull`:
+typically for master it might be origin/master.  There is a variant of
+this option which lets you make your local branch identical to some
+other branch or ref.
 
 * [I want to discard all unpushed changes](#discard_all_unpushed)
+* [I want to make my branch identical to some non-upstream ref](#replace_all_unpushed)
 * [I want to fix some unpushed changes](#fix_unpushed)
 
 
@@ -180,6 +185,29 @@ local branch identical to "upstream".
 In order to discard all local commits on this branch, to make the
 local branch identical to the "upstream" of this branch, simply run
 `git reset --hard @{u}`
+
+
+<a name="replace_all_unpushed" />
+## Replacing all branch history/contents
+
+If instead of discarding all local commits, you can make your branch
+identical to some other branch, tag, ref, or SHA that exists on your
+system.
+
+The first thing you need to do is identify the SHA or ref of the good
+state of your branch.  You can do this by looking at the output of
+`git branch -a; git tag`, `git log --all` or, my preference, you can
+look graphically at `gitk --all --date-order`
+
+Once you have found the correct state of your branch, you can get to
+that state by running
+
+```shell
+git reset --hard REF
+```
+
+Obviously replace "ref" in both commands with the reference or SHA you
+want to get back to.
 
 
 <a name="fix_unpushed" />
