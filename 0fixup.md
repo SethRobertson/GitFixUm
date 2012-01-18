@@ -218,6 +218,7 @@ on the most recent, there are some convenient shortcuts you can take
 with the most recent commit.
 
 * [I want to change the most recent commit](#change_last)
+* [I want to discard the most recent commit(s)](#remove_last)
 * [I want to undo the last git operation(s) affecting the HEAD/tip of my branch (most useful for rebase, reset, or --amend)](#undo_tip)
 * [I want to change an older commit](#change_deep)
 
@@ -236,6 +237,9 @@ To remove the last commit from git, you can simply run `git reset
 --hard HEAD^` If you are removing multiple commits from the top, you
 can run `git reset HEAD~2` to remove the last two commits.  You can
 increase the number to remove even more commits.
+
+If you want to save the commits on a new branch name, then run `git
+branch newbranchname` BEFORE doing the `git reset`.
 
 
 <a name="update_last" />
