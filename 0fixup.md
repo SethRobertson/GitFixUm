@@ -82,7 +82,7 @@ untracked and ignored files are not stashed by default.  See
 "--include-untracked" and "--all" for stash options to handle those
 two cases.
 
-However, perhaps you hare confident (or arrogant) enough to know for
+However, perhaps you are confident (or arrogant) enough to know for
 sure that you will never ever want the uncommitted changes.  If so,
 you can run `git reset --hard`, however please be quite aware that
 this is almost certainly a completely unrecoverable operation.  Any
