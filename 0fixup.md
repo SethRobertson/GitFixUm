@@ -1,4 +1,5 @@
 # [On undoing, fixing, or removing commits in git](https://gist.github.com/1612395)
+A git choose-your-own-adventure!
 
 This document is an attempt to be a fairly comprehensive guide to
 recovering from what you did not mean to do when using git.  It isn't
@@ -738,7 +739,8 @@ maintained back to the authoritative source.  Thanks.
 <a name="thanks" />
 ## Thanks
 
-Thanks to the experts on #git for review, feedback, and ideas.
+Thanks to the experts on #git and my coworkers for review, feedback,
+and ideas.
 
 
 <a name="comments" />
