@@ -585,7 +585,9 @@ git add -fA .
 git commit -m "Rewrite $destination with $source"
 git merge -s ours $source
 ```
+
 or
+
 ```shell
 # Hacky method to overwrite one branch with another in one commit
 git clean -dfx
