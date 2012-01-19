@@ -540,14 +540,14 @@ Another option is to abandon the branch you merged from, recreate it
 from the previous merge-base with the commits since then rebased or
 cherry-picked over, and use the recreated branch from now on.  Then
 the new branch is unrelated and will merge properly.  Of course, if
-you have pushed the doner branch you cannot use the same name (that
+you have pushed the donor branch you cannot use the same name (that
 would be rewriting public history and is bad) so everyone needs to
 remember to use the new branch.  Hopefully you have something like
 [gitolite](https://github.com/sitaramc/gitolite) where you can close
 the old branch name.
 
 At this time, I will not walk you through the process of recreating
-the doner branch.  Given sufficient demand I can try to add that.
+the donor branch.  Given sufficient demand I can try to add that.
 However, if you look at howto/revert-a-faulty-merge.txt which is
 shipped as part of the git distribution, it will provide more words
 than you can shake a stick at.
