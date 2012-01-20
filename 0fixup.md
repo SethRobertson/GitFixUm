@@ -640,9 +640,9 @@ in your backups.
 Once you are fully convinced that it is well and truly lost, you can
 start looking elsewhere in git.  Specifically, you should first look
 at the reflog which contains the history of what happened to the tip
-of your branch for the past two weeks or so.  You can of course say
-`git log -g` to view it, but it may be best visualized with `gitk
---all --date-order $(git log -g --pretty=%H)`
+of your branches for the past two weeks or so.  You can of course say
+`git log -g` or `git reflog` to view it, but it may be best visualized
+with `gitk --all --date-order $(git reflog --pretty=%H)`
 
 Next you can look in git's lost and found.  Dangling commits get
 generated for many good reasons including resets and rebases.  Still
