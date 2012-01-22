@@ -455,7 +455,7 @@ idea](https://gist.github.com/1540906#pubonce).  It requires everyone
 else to do special things and you must publicly announce your failure.
 Ideally you will create either a commit to just fix the problem, or a
 new `git revert` commit to create a new commit which undoes what the
-commit you reverted did.
+commit target of the revert did.
 
 * [Yes, I can make a new commit but the bad commit trashed a particular file in error (among other good things I want to keep)](#pushed_restore_file)
 * [Yes, I can make a new commit and the bad commit is a merge commit I want to totally remove](#pushed_new_merge)
