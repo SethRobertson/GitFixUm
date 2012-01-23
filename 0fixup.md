@@ -724,6 +724,20 @@ to get out of the merge.
 The fastest way out of the merge is `git rebase --abort`
 
 
+<a name="disclaimer" />
+## Disclaimer
+
+Information is not promised or guaranteed to be correct, current, or
+complete, and may be out of date and may contain technical
+inaccuracies or typographical errors.  Any reliance on the material on
+this site is at your own risk.  No one assumes any responsibility (and
+everyone expressly disclaims responsibility) for updating this site to
+keep information current or to ensure the accuracy or completeness of
+any posted information. Accordingly, you should confirm the accuracy
+and completeness of all posted information before making any decision
+related to any and all matters described in this site.
+
+
 <a name="copyright" />
 ## Copyright
 
