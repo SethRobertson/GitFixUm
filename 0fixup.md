@@ -361,8 +361,9 @@ The "^" in that command is literal.
 You will be dumped in an editor with a bunch of lines starting with
 pick.  The oldest commit, the one you are probably interested in
 changing, is first.  You will want to change the "pick" to "reword" or
-"edit" depending on what your goal is.  Please read the [manual
-page](http://jk.gs/git-rebase.html) for more information.
+"edit", or perhaps even "squash" depending on what your goal is.
+Please read the [manual page](http://jk.gs/git-rebase.html) for more
+information.
 
 When using "edit", to change contents or author, when you are dumped
 into the shell to make your change, well make your change, `git add`
