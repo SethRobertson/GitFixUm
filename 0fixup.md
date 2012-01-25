@@ -744,9 +744,16 @@ related to any and all matters described.
 
 Copyright ⓒ 2012 Seth Robertson
 
-Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
+This document is licensed and distributed to you through the use of
+two licenses.  You may pick the license you prefer.
 
-http://creativecommons.org/licenses/by-sa/2.5/
+Creative Commons Attribution-ShareAlike 3.0 Generic (CC BY-SA 3.0)
+http://creativecommons.org/licenses/by-sa/3.0/
+
+OR
+
+GNU Free Documentation v1.3 with no Invariant, Front, or Back Cover texts.
+http://www.gnu.org/licenses/fdl.html
 
 I would appreciate changes being sent back to me, being notified if
 this is used or highlighted in some special way, and links being
