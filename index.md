@@ -1,3 +1,8 @@
+---
+title: On undoing, fixing, or removing commits in git
+layout: default
+---
+
 # [On undoing, fixing, or removing commits in git](https://gist.github.com/1612395)
 A git choose-your-own-adventure!
 
@@ -98,30 +103,30 @@ deleting what you should not by looking at the moribund filenames
 first.
 
 
-<a name="uncommitted_somethings">
+<a name="uncommitted_somethings" />
 ## How to undo some uncommitted changes
 
 So you have not yet committed and you want to undo some things, well
 `git status` will tell you exactly what you need to do.  For example:
 
-```
+<pre>
 # On branch master
 # Changes to be committed:
-#   (use "git reset HEAD <file>..." to unstage)
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
 #
 #       new file:   .gitignore
 #
 # Changes not staged for commit:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
 #
 #       modified:   A
 #
 # Untracked files:
-#   (use "git add <file>..." to include in what will be committed)
+#   (use "git add &lt;file&gt;..." to include in what will be committed)
 #
 #       C
-```
+</pre>
 
 However, the `git checkout` in file mode is a command that cannot be
 recovered from—the changes which are discarded most probably cannot be
@@ -210,7 +215,7 @@ look graphically at `gitk --all --date-order`
 Once you have found the correct state of your branch, you can get to
 that state by running
 
-```shell
+```
 git reset --hard REF
 ```
 
@@ -260,7 +265,7 @@ reflect.  If you are changing the commit message only, you need do
 nothing.  If you are changing the file contents, typically you would
 modify the working directory and use `git add` as normal.
 
-Note if you wish to restore a file to a known good state, you can use
+Note if you wish to restore a file to a known good state, you can use:
 `git checkout GOODSHA -- path/to/filename`.
 
 Once the index is in the correct state, then you can run `git commit
@@ -286,7 +291,7 @@ wish to remove.  You can do this using `gitk --date-order` or using
 character SHA-1 hash ID (or the 7 character abbreviation).  Yes, if
 you know the "^" or "~" shortcuts you may use those.
 
-```shell
+```
 git rebase -p --onto SHA^ SHA
 ```
 
@@ -348,15 +353,15 @@ handling of the situation.
 You must first identify the SHA of the commit you wish to remove.
 You can do this using `gitk --date-order` or using `git log --graph
 --decorate --oneline` You are looking for the 40 character SHA-1 hash
-ID (or the 7 character abbreviation).  Yes, if you know the "^" or "~"
+ID (or the 7 character abbreviation).  Yes, if you know the "&#94;" or "~"
 shortcuts you may use those.
 
-```shell
+```
 git rebase -i SHA^
 ```
 
 Obviously replace "SHA" with the reference you want to get rid of.
-The "^" in that command is literal.
+The "&#94;" in that command is literal.
 
 You will be dumped in an editor with a bunch of lines starting with
 pick.  The oldest commit, the one you are probably interested in
@@ -386,7 +391,7 @@ You can delete it immediately after you are done.
 
     You can do this using `gitk --date-order` or using `git log --graph
     --decorate --oneline` You are looking for the 40 character SHA-1 hash
-    ID (or the 7 character abbreviation).  Yes, if you know the "^" or "~"
+    ID (or the 7 character abbreviation).  Yes, if you know the "&#94;" or "~"
     shortcuts you may use those.
 
 * Remember the name of the branch you are currently on
@@ -397,7 +402,7 @@ You can delete it immediately after you are done.
 
 * Create and checkout a nonce branch pointing at that commit.
 
-    ```shell
+    ```
 git checkout nonce SHA
 ```
 
@@ -424,7 +429,7 @@ git checkout nonce SHA
 
     Remembering to substitute the correct branch name for $master
 
-    ```shell
+    ```
 git rebase -p --onto $(git rev-parse nonce) HEAD^ $master
 ```
 
@@ -488,9 +493,9 @@ You must first identify the SHA of the commit containing the good
 version of the file.  You can do this using `gitk --date-order` or
 using `git log --graph --decorate --oneline` You are looking for the
 40 character SHA-1 hash ID (or the 7 character abbreviation).  Yes, if
-you know the "^" or "~" shortcuts you may use those.
+you know the "&#94;" or "~" shortcuts you may use those.
 
-```shell
+```
 git checkout SHA -- path/to/filename
 ```
 
@@ -506,9 +511,9 @@ To create an positive commit to remove the effects of a simple
 want to revert.  You can do this using `gitk --date-order` or using
 `git log --graph --decorate --oneline` You are looking for the 40
 character SHA-1 hash ID (or the 7 character abbreviation).  Yes, if
-you know the "^" or "~" shortcuts you may use those.
+you know the "&#94;" or "~" shortcuts you may use those.
 
-```shell
+```
 git revert SHA
 ```
 
@@ -524,7 +529,7 @@ To create an positive commit to remove the effects of a merge commit,
 you must first identify the SHA of the commit you want to revert.  You
 can do this using `gitk --date-order` or using `git log --graph
 --decorate --oneline` You are looking for the 40 character SHA-1 hash
-ID (or the 7 character abbreviation).  Yes, if you know the "^" or "~"
+ID (or the 7 character abbreviation).  Yes, if you know the "&#94;" or "~"
 shortcuts you may use those.
 
 Undoing the file modifications caused by the merge is about as simple
@@ -576,7 +581,7 @@ current internal files git uses to do the necessary work in one
 commit. Only one command is different and a second command runs at a
 different time.
 
-```shell
+<pre>
 # Portable method to overwrite one branch with another in two commits
 git clean -dfx
 git checkout $destination
@@ -585,11 +590,11 @@ git reset --soft ORIG_HEAD
 git add -fA .
 git commit -m "Rewrite $destination with $source"
 git merge -s ours $source
-```
+</pre>
 
 or
 
-```shell
+<pre>
 # Hacky method to overwrite one branch with another in one commit
 git clean -dfx
 git checkout $destination
@@ -598,7 +603,7 @@ git reset --soft ORIG_HEAD
 git add -fA .
 git rev-parse $source > .git/MERGE_HEAD
 git commit -m "Rewrite $destination with $source"
-```
+</pre>
 
 
 <a name="pushed_old" />
@@ -630,9 +635,12 @@ commits you made.  You can also search with `gitk --all --date-order`
 to see if anything looks likely.
 
 Check your stashes, `git stash list`, to see if you might have stashed
-instead of committing.  You can also run `gitk --all --date-order
-$(git stash list | awk -F: '{print $1};')` to visualize what the
-stashes might be associated with.
+instead of committing.  You can also visualize what the stashes might
+be associated with via:
+
+```
+gitk --all --date-order $(git stash list | awk -F: '{print $1};')
+```
 
 Next, you should probably look in other repositories you have lying
 around including ones on other hosts and in testing environments, and
@@ -643,7 +651,11 @@ start looking elsewhere in git.  Specifically, you should first look
 at the reflog which contains the history of what happened to the tip
 of your branches for the past two weeks or so.  You can of course say
 `git log -g` or `git reflog` to view it, but it may be best visualized
-with `gitk --all --date-order $(git reflog --pretty=%H)`
+with:
+
+```
+gitk --all --date-order $(git reflog --pretty=%H)
+```
 
 Next you can look in git's lost and found.  Dangling commits get
 generated for many good reasons including resets and rebases.  Still
@@ -653,9 +665,13 @@ $(git fsck | grep "dangling commit" | awk '{print $3;}')`
 
 The last place you can look is in dangling blobs.  These are files
 which have been `git add`ed but not attached to a commit for some
-(usually innocuous)reason.  `git fsck | grep "dangling blob" | while
-read x x s; do git show $s | less; done` will show you the files, one
-at a time.
+(usually innocuous) reason.  To look at the files, one at a time, run:
+
+```
+git fsck | grep "dangling blob" | while read x x s; do
+  git show $s | less;
+done
+```
 
 Once you find the changes you are interested in, there are several
 ways you can proceed.  .  You can `git reset --hard SHA` your current
@@ -688,13 +704,13 @@ of your branch.  You can do this by looking at the output of `git log
 Once you have found the correct state of your branch, you can get back
 to that state by running
 
-```shell
+```
 git reset --hard SHA
 ```
 
 You could also link that old state to a new branch name using
 
-```shell
+```
 git checkout -b newbranch SHA
 ```
 
