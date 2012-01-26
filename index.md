@@ -517,7 +517,8 @@ you know the "&#94;" or "~" shortcuts you may use those.
 git revert SHA
 ```
 
-Obviously replace "SHA" with the reference you want to revert.
+Obviously replace "SHA" with the reference you want to revert.  If you
+want to revert multiple SHA, you may specify a range or a list of SHA.
 
 
 <a name="pushed_new_merge" />
