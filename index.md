@@ -131,18 +131,22 @@ instead of zapping them.
 
 
 <a name="committed" />
-## Do you have a clean working directory?
+## Do you uncommitted stuff in your working directory?
 <!-- This text is duplicated in #foo -->
 
 So you have committed.  However, before we go about fixing or removing
 whatever is wrong, you should first ensure that any uncommitted
 changes are safe, by either committing them (`git commit`) or by
 stashing them (`git stash save "message"`) or getting rid of them.
-`git status` will help you understand whether your working directory
-is clean or not.
 
-* [My working directory is quite clean](#committed_really)
-* [My working directory is filthy and I want to discard it](#uncommitted)
+`git status` will help you understand whether your working directory
+is clean or not.  It should report nothing for perfect safety
+("Untracked files" only are sometimes safe.)
+
+* [No changes/working directory is clean](#committed_really)
+* [Bad changes/working directory is dirty: discard it](#uncommitted_everything)
+
+The other options are to stash or commit, as documented above.
 
 
 <a name="committed_really" />
@@ -229,6 +233,7 @@ with the most recent commit.
 * [I want to discard the most recent commit(s)](#remove_last)
 * [I want to undo the last git operation(s) affecting the HEAD/tip of my branch (most useful for rebase, reset, or --amend)](#undo_tip)
 * [I want to change an older commit](#change_deep)
+* [I want to restore a older version of/deleted file as a new commit](#pushed_restore_file)
 
 
 <a name="change_last" />
@@ -486,9 +491,10 @@ can simply checkout a version of the file which you know is good.
 
 You must first identify the SHA of the commit containing the good
 version of the file.  You can do this using `gitk --date-order` or
-using `git log --graph --decorate --oneline` You are looking for the
-40 character SHA-1 hash ID (or the 7 character abbreviation).  Yes, if
-you know the "^" or "~" shortcuts you may use those.
+using `git log --graph --decorate --oneline` or perhaps `git log
+--oneline -- filename` You are looking for the 40 character SHA-1 hash
+ID (or the 7 character abbreviation).  Yes, if you know the "&#94;" or
+"~" shortcuts you may use those.
 
 ```shell
 git checkout SHA -- path/to/filename
