@@ -82,13 +82,14 @@ were trying to do, and that you at least tried to help yourself.</p>
 <h2>First step</h2>
 
 <p>Strongly consider taking a
-<a href="http://sethrobertson.github.com/GitBestPractices/#backups">backup</a> of your current
-working directory and .git to avoid any possibility of losing data as
-a result of the use or misuse of these instructions. We promise to
-laugh at you if you fail to take a backup and regret it later.</p>
+<a href="http://sethrobertson.github.com/GitBestPractices/#backups">backup</a>
+of your current working directory and .git to avoid any possibility of
+losing data as a result of the use or misuse of these instructions. We
+promise to laugh at you if you fail to take a backup and regret it
+later.</p>
 
-<p>Answer the questions posed by clicking the link for that section.  A
-section with no links is a terminal node and you should have solved
+<p>Answer the questions posed by clicking the link for that section.
+A section with no links is a terminal node and you should have solved
 your problem by completing the suggestions posed by that node (if not,
 then report the chain of answers you made on #git or some other git
 resource and explain further why the proposed answer doesn't help).
@@ -115,9 +116,9 @@ includes updating, rewording, and deleting or discarding.</p>
 
 <h2>Have you committed?</h2>
 
-<p>If you have not yet committed that which you do not want, git does not
-know anything about what you have done yet, so it is pretty easy to
-undo what you have done.</p>
+<p>If you have not yet committed that which you do not want, git does
+not know anything about what you have done yet, so it is pretty easy
+to undo what you have done.</p>
 
 <ul>
 <li><a  href="#badmerge" onclick="return(crumbs.both('#badmerge',this.innerHTML));">I am in the middle of a bad merge</a></li>
@@ -131,9 +132,9 @@ undo what you have done.</p>
 
 <h2>Everything or just some things?</h2>
 
-<p>So you have not yet committed, the question is now whether you want to
-undo everything which you have done since the last commit or just some
-things?</p>
+<p>So you have not yet committed, the question is now whether you want
+to undo everything which you have done since the last commit or just
+some things?</p>
 
 <ul>
 <li><a  href="#uncommitted_everything" onclick="return(crumbs.both('#uncommitted_everything',this.innerHTML));">Discard everything</a></li>
@@ -145,36 +146,41 @@ things?</p>
 
 <h2>How to undo all uncommitted changes</h2>
 
-<p>So you have not yet committed and you want to undo everything.  Well,
-<a href="http://sethrobertson.github.com/GitBestPractices/">best practice</a> is for you to stash
-the changes in case you were mistaken and later decide that you really
-wanted them after all. <code class="inline">git stash save "description of changes"</code>. You
-can revisit those stashes later <code class="inline">git stash list</code> and decide whether to
-<code class="inline">git stash drop</code> them after some time has past.  Please note that
-untracked and ignored files are not stashed by default.  See
-"--include-untracked" and "--all" for stash options to handle those
-two cases.</p>
+<p>So you have not yet committed and you want to undo everything.
+Well, <a href="http://sethrobertson.github.com/GitBestPractices/">best
+practice</a> is for you to stash the changes in case you were mistaken
+and later decide that you really wanted them after
+all. <code class="inline">git stash save "description of
+changes"</code>. You can revisit those stashes
+later <code class="inline">git stash list</code> and decide whether
+to <code class="inline">git stash drop</code> them after some time has
+past.  Please note that untracked and ignored files are not stashed by
+default.  See "--include-untracked" and "--all" for stash options to
+handle those two cases.</p>
 
 <p>However, perhaps you are confident (or arrogant) enough to know for
 sure that you will never ever want the uncommitted changes.  If so,
-you can run <code class="inline">git reset --hard</code>, however please be quite aware that
-this is almost certainly a completely unrecoverable operation.  Any
-changes which are removed here cannot be restored later.  This will
-not delete untracked or ignored files.  Those can be deleted with <code class="inline">git
-clean -nd</code> <code class="inline">git clean -ndX</code> respectively, or <code class="inline">git clean -ndx</code> for both
-at once.  Well, actually those command do not delete the files.  They
-show what files will be deleted.  Replace the "n" in "-nd…" with "f"
-to actually delete the files.  <a href="http://sethrobertson.github.com/GitBestPractices/">Best
-practice</a> is to ensure you are not
-deleting what you should not by looking at the moribund filenames
-first.</p>
+you can run <code class="inline">git reset --hard</code>, however
+please be quite aware that this is almost certainly a completely
+unrecoverable operation.  Any changes which are removed here cannot be
+restored later.  This will not delete untracked or ignored files.
+Those can be deleted with <code class="inline">git clean
+-nd</code> <code class="inline">git clean -ndX</code> respectively,
+or <code class="inline">git clean -ndx</code> for both at once.  Well,
+actually those command do not delete the files.  They show what files
+will be deleted.  Replace the "n" in "-nd…" with "f" to actually
+delete the
+files.  <a href="http://sethrobertson.github.com/GitBestPractices/">Best
+practice</a> is to ensure you are not deleting what you should not by
+looking at the moribund filenames first.</p>
 
 <p><a name="uncommitted_somethings" /></p><div name="crumbs"></div>
 
 <h2>How to undo some uncommitted changes</h2>
 
-<p>So you have not yet committed and you want to undo some things, well
-<code class="inline">git status</code> will tell you exactly what you need to do.  For example:</p>
+<p>So you have not yet committed and you want to undo some things,
+well <code class="inline">git status</code> will tell you exactly what
+you need to do.  For example:</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 # On branch master
@@ -196,9 +202,10 @@ first.</p>
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
 
-<p>However, the <code class="inline">git checkout</code> in file mode is a command that cannot be
-recovered from—the changes which are discarded most probably cannot be
-recovered.  Perhaps you should run <code class="inline">git stash save -p "description"</code>
+<p>However, the <code class="inline">git checkout</code> in file mode
+is a command that cannot be recovered from—the changes which are
+discarded most probably cannot be recovered.  Perhaps you should
+run <code class="inline">git stash save -p "description"</code>
 instead, and select the changes you no longer want to be stashed
 instead of zapping them.</p>
 
@@ -209,14 +216,17 @@ instead of zapping them.</p>
 <!-- This text is duplicated in #foo -->
 
 
-<p>So you have committed.  However, before we go about fixing or removing
-whatever is wrong, you should first ensure that any uncommitted
-changes are safe, by either committing them (<code class="inline">git commit</code>) or by
-stashing them (<code class="inline">git stash save "message"</code>) or getting rid of them.</p>
+<p>So you have committed.  However, before we go about fixing or
+removing whatever is wrong, you should first ensure that any
+uncommitted changes are safe, by either committing them
+(<code class="inline">git commit</code>) or by stashing them
+(<code class="inline">git stash save "message"</code>) or getting rid
+of them.</p>
 
-<p><code class="inline">git status</code> will help you understand whether your working directory
-is clean or not.  It should report nothing for perfect safety
-("Untracked files" only are sometimes safe.)</p>
+<p><code class="inline">git status</code> will help you understand
+whether your working directory is clean or not.  It should report
+nothing for perfect safety ("Untracked files" only are sometimes
+safe.)</p>
 
 <ul>
 <li><a  href="#committed_really" onclick="return(crumbs.both('#committed_really',this.innerHTML));">No, I have no changes/working directory is clean</a></li>
@@ -230,17 +240,18 @@ is clean or not.  It should report nothing for perfect safety
 
 <h2>Have you pushed?</h2>
 
-<p>So you have committed, the question is now whether you have made your
-changes publicly available or not.  Publishing history is seminal
+<p>So you have committed, the question is now whether you have made
+your changes publicly available or not.  Publishing history is seminal
 event.</p>
 
 <p>Please note in any and all events, the recipes provided here will
 typically (only one exception which will self-notify) only modify the
 current branch you are on.  Specifically any tags or branches
 involving the commit you are changing or a child or that commit will
-not be modified.  You must deal with those separately.  Look at <code class="inline">gitk
---all --date-order</code> to help visualize everything what other git
-references might need to be updated.</p>
+not be modified.  You must deal with those separately.  Look
+at <code class="inline">gitk --all --date-order</code> to help
+visualize everything what other git references might need to be
+updated.</p>
 
 <p>Also note that these commands will fix up the referenced commits in
 your repository.  There will be reflog'd and dangling commits holding
@@ -262,10 +273,10 @@ with immediate pruning.</p>
 <p>There is a shortcut in case you want to discard all changes made on
 this branch since you have last pushed or in any event, to make your
 local branch identical to "upstream".  Upstream, for local tracking
-branches, is the place you get history from when you <code class="inline">git pull</code>:
-typically for master it might be origin/master.  There is a variant of
-this option which lets you make your local branch identical to some
-other branch or ref.</p>
+branches, is the place you get history from when
+you <code class="inline">git pull</code>: typically for master it
+might be origin/master.  There is a variant of this option which lets
+you make your local branch identical to some other branch or ref.</p>
 
 <ul>
 <li><a  href="#discard_all_unpushed" onclick="return(crumbs.both('#discard_all_unpushed',this.innerHTML));">Yes, I want to discard all unpushed changes</a></li>
@@ -286,32 +297,34 @@ local branch identical to the "upstream" of this branch, simply run
 
 <h2>Replacing all branch history/contents</h2>
 
-<p>If instead of discarding all local commits, you can make your branch
-identical to some other branch, tag, ref, or SHA that exists on your
-system.</p>
+<p>If instead of discarding all local commits, you can make your
+branch identical to some other branch, tag, ref, or SHA that exists on
+your system.</p>
 
-<p>The first thing you need to do is identify the SHA or ref of the good
-state of your branch.  You can do this by looking at the output of
-<code class="inline">git branch -a; git tag</code>, <code class="inline">git log --all</code> or, my preference, you can
-look graphically at <code class="inline">gitk --all --date-order</code></p>
+<p>The first thing you need to do is identify the SHA or ref of the
+good state of your branch.  You can do this by looking at the output
+of <code class="inline">git branch -a; git
+tag</code>, <code class="inline">git log --all</code> or, my
+preference, you can look graphically at <code class="inline">gitk
+--all --date-order</code></p>
 
 <p>Once you have found the correct state of your branch, you can get to
-that state by running</p>
+that state by running:</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git reset --hard REF
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
-<p>Obviously replace "ref" in both commands with the reference or SHA you
-want to get back to.</p>
+<p>Obviously replace "REF" with the reference or SHA you want to get
+back to.</p>
 
 <p><a name="fix_unpushed" /></p><div name="crumbs"></div>
 
 <h2>Is the commit you want to fix the most recent?</h2>
 
-<p>While the techniques mentioned to deal with deeper commits will work
-on the most recent, there are some convenient shortcuts you can take
-with the most recent commit.</p>
+<p>While the techniques mentioned to deal with deeper commits will
+work on the most recent, there are some convenient shortcuts you can
+take with the most recent commit.</p>
 
 <ul>
 <li><a  href="#change_last" onclick="return(crumbs.both('#change_last',this.innerHTML));">Yes, I want to change the most recent commit</a></li>
@@ -337,13 +350,17 @@ with the most recent commit.</p>
 
 <h2>Removing the last commit</h2>
 
-<p>To remove the last commit from git, you can simply run <code class="inline">git reset
---hard HEAD^</code> If you are removing multiple commits from the top, you
-can run <code class="inline">git reset HEAD~2</code> to remove the last two commits.  You can
-increase the number to remove even more commits.</p>
+<p>To remove the last commit from git, you can simply
+run <code class="inline">git reset --hard HEAD^</code> If you are
+removing multiple commits from the top, you can
+run <code class="inline">git reset HEAD~2</code> to remove the last
+two commits.  You can increase the number to remove even more
+commits.</p>
 
-<p>If you want to save the commits on a new branch name, then run <code class="inline">git
-branch newbranchname</code> <em>before</em> doing the <code class="inline">git reset</code>.</p>
+<p>If you want to save the commits on a new branch name, then
+run <code class="inline">git branch
+newbranchname</code> <em>before</em> doing
+the <code class="inline">git reset</code>.</p>
 
 
 <p><a name="move_commit" /></p><div name="crumbs"></div>
@@ -372,12 +389,12 @@ git rebase -p --onto $destination $first^ nonce
 <p>Remember that when you substitute $first in the command above, leave
 the "^" alone, it is literal.</p>
 
-<p>Use <code class="inline">gitk --all --date-order</code> to check to make sure
-the move looks correct (pretending that nonce is the destination
-branch).  Please check very carefully if you were trying to move a
-merge, it may have been recreated improperly.  If you <em>don't</em> like the
-result, you may delete the nonce branch (<code class="inline">git branch -D
-nonce</code>) and try again.</p>
+<p>Use <code class="inline">gitk --all --date-order</code> to check to
+make sure the move looks correct (pretending that nonce is the
+destination branch).  Please check very carefully if you were trying
+to move a merge, it may have been recreated improperly.  If
+you <em>don't</em> like the result, you may delete the nonce branch
+(<code class="inline">git branch -D nonce</code>) and try again.</p>
 
 <p>However, if everything looks good, we can move the actual
 destination branch pointer to where nonce is:</p>
@@ -388,21 +405,21 @@ git reset --hard nonce
 git branch -d nonce
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
-<p>If you double-checked with <code class="inline">gitk --all --date-order</code>,
-you would see that the destination branch looks correct.  However, the
-commits are still on the source branch as well.  We can get rid of
-those now:</p>
+<p>If you double-checked with <code class="inline">gitk --all
+--date-order</code>, you would see that the destination branch looks
+correct.  However, the commits are still on the source branch as well.
+We can get rid of those now:</p>
 
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git rebase -p --onto $first^ $last $source
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
-<p>Using <code class="inline">gitk --all --date-order</code> one last time, you
-should now see that the commits on the source branch have gone away.
-You have successfully moved the commits. Please check very carefully
-if merges occurred after the commits which were deleted.  They may
-have been recreated incorrectly.  If so you can
+<p>Using <code class="inline">gitk --all --date-order</code> one last
+time, you should now see that the commits on the source branch have
+gone away.  You have successfully moved the commits. Please check very
+carefully if merges occurred after the commits which were deleted.
+They may have been recreated incorrectly.  If so you can
 either <a href="#undo_tip"
 onclick="return(crumbs.both('#undo_tip',this.innerHTML));">undo the
 delete</a> or try to delete the bad merge and try to recreate it
@@ -414,20 +431,24 @@ git is aware that the merge occurred.</p>
 
 <h2>Updating the last commit's contents or commit message</h2>
 
-<p>To update the last commit's contents, author, or commit message for a
-commit which you have not pushed or otherwise published, first you
+<p>To update the last commit's contents, author, or commit message for
+a commit which you have not pushed or otherwise published, first you
 need to get the index into the correct state you wish the commit to
 reflect.  If you are changing the commit message only, you need do
 nothing.  If you are changing the file contents, typically you would
-modify the working directory and use <code class="inline">git add</code> as normal.</p>
+modify the working directory and use <code class="inline">git
+add</code> as normal.</p>
 
-<p>Note if you wish to restore a file to a known good state, you can use:
-<code class="inline">git checkout GOODSHA -- path/to/filename</code>.</p>
+<p>Note if you wish to restore a file to a known good state, you can
+use: <code class="inline">git checkout GOODSHA --
+path/to/filename</code>.</p>
 
-<p>Once the index is in the correct state, then you can run <code class="inline">git commit
---amend</code> to update the last commit.  Yes, you can use "-a" if you want
-to avoid the <code class="inline">git add</code> suggested in the previous paragraph.  You can
-also use --author to change the author information.</p>
+<p>Once the index is in the correct state, then you can
+run <code class="inline">git commit --amend</code> to update the last
+commit.  Yes, you can use "-a" if you want to avoid
+the <code class="inline">git add</code> suggested in the previous
+paragraph.  You can also use --author to change the author
+information.</p>
 
 
 <p><a name="change_deep" /></p><div name="crumbs"></div>
@@ -445,11 +466,12 @@ also use --author to change the author information.</p>
 <h2>Removing an entire commit</h2>
 
 <p>I call this operation "cherry-pit" since it is the inverse of a
-"cherry-pick".  You must first identify the SHA of the commit you
-wish to remove.  You can do this using <code class="inline">gitk --date-order</code> or using
-<code class="inline">git log --graph --decorate --oneline</code> You are looking for the 40
-character SHA-1 hash ID (or the 7 character abbreviation).  Yes, if
-you know the "^" or "~" shortcuts you may use those.</p>
+"cherry-pick".  You must first identify the SHA of the commit you wish
+to remove.  You can do this using <code class="inline">gitk
+--date-order</code> or using <code class="inline">git log --graph
+--decorate --oneline</code> You are looking for the 40 character SHA-1
+hash ID (or the 7 character abbreviation).  Yes, if you know the "^"
+or "~" shortcuts you may use those.</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git rebase -p --onto SHA^ SHA
@@ -458,17 +480,19 @@ git rebase -p --onto SHA^ SHA
 <p>Obviously replace "SHA" with the reference you want to get rid of.
 The "^" in that command is literal.</p>
 
-<p>However, please be warned.  If some of the commits between SHA and the
-tip of your branch are merge commits, it is possible that <code class="inline">git rebase -p</code>
-will be unable to properly recreate them.  Please inspect the
-resulting merge topology <code class="inline">gitk --date-order HEAD ORIG_HEAD</code> to ensure
-that git did want you wanted.  If it did not, there is not really any
-automated recourse.  You can reset back to the commit before the SHA
-you want to get rid of, and then cherry-pick the normal commits and
-manually re-merge the "bad" merges.  Or you can just suffer with the
-inappropriate topology (perhaps creating fake merges <code class="inline">git merge --ours
-otherbranch</code> so that subsequent development work on those branches
-will be properly merged in with the correct merge-base).</p>
+<p>However, please be warned.  If some of the commits between SHA and
+the tip of your branch are merge commits, it is possible
+that <code class="inline">git rebase -p</code> will be unable to
+properly recreate them.  Please inspect the resulting merge
+topology <code class="inline">gitk --date-order HEAD ORIG_HEAD</code>
+to ensure that git did want you wanted.  If it did not, there is not
+really any automated recourse.  You can reset back to the commit
+before the SHA you want to get rid of, and then cherry-pick the normal
+commits and manually re-merge the "bad" merges.  Or you can just
+suffer with the inappropriate topology (perhaps creating fake
+merges <code class="inline">git merge --ours otherbranch</code> so
+that subsequent development work on those branches will be properly
+merged in with the correct merge-base).</p>
 
 <p><a name="modify_deep" /></p><div name="crumbs"></div>
 
@@ -487,24 +511,27 @@ will be properly merged in with the correct merge-base).</p>
 <p>You have not pushed but still somehow want to change all commits in
 all of git's history?  Strange.</p>
 
-<p>You want to use the <code class="inline">git filter-branch</code> command to perform this
-action.  This command is quite involved and complex, so I will simply
-point you at the <a href="http://jk.gs/git-filter-branch.html">manual page</a>
-and remind you that <a href="http://sethrobertson.github.com/GitBestPractices/">best practice</a>
-is to always use <code>"--tag-name-filter cat -- --all"</code> unless you are
-really sure you know what you are doing.</p>
+<p>You want to use the <code class="inline">git filter-branch</code>
+command to perform this action.  This command is quite involved and
+complex, so I will simply point you at
+the <a href="http://jk.gs/git-filter-branch.html">manual page</a> and
+remind you
+that <a href="http://sethrobertson.github.com/GitBestPractices/">best
+practice</a> is to always use <code>"--tag-name-filter cat --
+--all"</code> unless you are really sure you know what you are
+doing.</p>
 
-<p>BTW, this is the one command I referred to earlier which will update
-all tags and branches, at least if you use the best practice
+<p>BTW, this is the one command I referred to earlier which will
+update all tags and branches, at least if you use the best practice
 arguments.</p>
 
 <p><a name="change_single_deep" /></p><div name="crumbs"></div>
 
 <h2>Is a merge commit involved?</h2>
 
-<p>If the commit you are trying to change is a merge commit, or if there
-is a merge commit between the commit you are trying to change and the
-tip of the branch you are on, then you need to do some special
+<p>If the commit you are trying to change is a merge commit, or if
+there is a merge commit between the commit you are trying to change
+and the tip of the branch you are on, then you need to do some special
 handling of the situation.</p>
 
 <ul>
@@ -518,10 +545,11 @@ handling of the situation.</p>
 <h2>Changing a single commit involving only simple commits</h2>
 
 <p>You must first identify the SHA of the commit you wish to remove.
-You can do this using <code class="inline">gitk --date-order</code> or using <code class="inline">git log --graph
---decorate --oneline</code> You are looking for the 40 character SHA-1 hash
-ID (or the 7 character abbreviation).  Yes, if you know the "&#94;" or "~"
-shortcuts you may use those.</p>
+You can do this using <code class="inline">gitk --date-order</code> or
+using <code class="inline">git log --graph --decorate --oneline</code>
+You are looking for the 40 character SHA-1 hash ID (or the 7 character
+abbreviation).  Yes, if you know the "&#94;" or "~" shortcuts you may
+use those.</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git rebase -i SHA^
@@ -540,82 +568,97 @@ Git](http://sethrobertson.github.com/GitPostProduction/) goes through
 much of the major uses of git rebase is some detail.  The use case is
 a little different, but the fundamental techniques are not.</p>
 
-<p>When using "edit", to change contents or author, when you are dumped
-into the shell to make your change, well make your change, <code class="inline">git add</code>
-as normal, and then run <code class="inline">git commit --amend</code> (including changing the
-author information with --author).  When you are satisfied, you should
-run <code class="inline">git rebase --continue</code></p>
+<p>When using "edit", to change contents or author, when you are
+dumped into the shell to make your change, well make your
+change, <code class="inline">git add</code> as normal, and then
+run <code class="inline">git commit --amend</code> (including changing
+the author information with --author).  When you are satisfied, you
+should run <code class="inline">git rebase --continue</code></p>
 
 <p><a name="change_single_deep_merge" /></p><div name="crumbs"></div>
 
 <h2>Changing a single commit involving a merge</h2>
 
 <p>Oh dear.  This is going to get a little complicated.  It should all
-work out, though.  You will need to use a
-<a href="http://en.wiktionary.org/wiki/nonce">nonce</a> branch as a placeholder.
-I will call the nonce branch "nonce" in the following example.
-However, you may use any branch name that is not currently in use.
-You can delete it immediately after you are done.</p>
+work out, though.  You will need to use
+a <a href="http://en.wiktionary.org/wiki/nonce">nonce</a> branch as a
+placeholder.  I will call the nonce branch "nonce" in the following
+example.  However, you may use any branch name that is not currently
+in use.  You can delete it immediately after you are done.</p>
 
 <ul>
 <li><p>Identify the SHA of the commit you wish to modify.</p>
 
-<p>  You can do this using <code class="inline">gitk --date-order</code> or using <code class="inline">git log --graph
-  --decorate --oneline</code> You are looking for the 40 character SHA-1 hash
-  ID (or the 7 character abbreviation).  Yes, if you know the "&#94;" or "~"
-  shortcuts you may use those.</p></li>
+<p>You can do this using <code class="inline">gitk --date-order</code>
+or using <code class="inline">git log --graph --decorate
+--oneline</code> You are looking for the 40 character SHA-1 hash ID
+(or the 7 character abbreviation).  Yes, if you know the "&#94;" or
+"~" shortcuts you may use those.</p></li>
+
 <li><p>Remember the name of the branch you are currently on</p>
 
-<p>  The line with a star on it in the <code class="inline">git branch</code> output is the branch
-  you are currently on.  I will use "$master" in this example, but
-  substitute your branch name for "$master" in the following commands.</p></li>
+<p>The line with a star on it in the <code class="inline">git
+branch</code> output is the branch you are currently on.  I will use
+"$master" in this example, but substitute your branch name for
+"$master" in the following commands.</p></li>
+
 <li><p>Create and checkout a nonce branch pointing at that commit.</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git checkout nonce SHA
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
-<p>  Obviously replace "SHA" with the reference you want to modify.</p></li>
+<p>Obviously replace "SHA" with the reference you want to modify.</p></li>
+
 <li><p>Modify the commit</p>
 
-<p>  You need to get the index into the correct state you wish the commit
-  to reflect.  If you are changing the commit message only, you need do
-  nothing.  If you are changing the file contents, typically you would
-  modify the working directory and use <code class="inline">git add</code> as normal.</p>
+<p>You need to get the index into the correct state you wish the
+commit to reflect.  If you are changing the commit message only, you
+need do nothing.  If you are changing the file contents, typically you
+would modify the working directory and use <code class="inline">git
+add</code> as normal.</p>
 
-<p>  Note if you wish to restore a file to a known good state, you can use
-  <code class="inline">git checkout GOODSHA -- path/to/filename</code>.</p>
+<p>Note if you wish to restore a file to a known good state, you can
+use <code class="inline">git checkout GOODSHA --
+path/to/filename</code>.</p>
 
-<p>  Once the index is in the correct state, then you can run <code class="inline">git commit
-  --amend</code> to update the last commit.  Yes, you can use "-a" if you want
-  to avoid the <code class="inline">git add</code> suggested in the previous paragraph.</p>
+<p>Once the index is in the correct state, then you can
+run <code class="inline">git commit --amend</code> to update the last
+commit.  Yes, you can use "-a" if you want to avoid
+the <code class="inline">git add</code> suggested in the previous
+paragraph.</p>
 
-<p>  If the commit you are updating is a merge commit, ensure that the log
-  message reflects that.</p></li>
+<p>If the commit you are updating is a merge commit, ensure that the log
+message reflects that.</p></li>
+
 <li><p>Put the remaining commits after the new one you just created</p>
 
-<p>  Remembering to substitute the correct branch name for $master</p>
+<p>Remembering to substitute the correct branch name for $master</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git rebase -p --onto $(git rev-parse nonce) HEAD^ $master
 </code></pre><div class="befaftpre"><!-- --></div></div></li>
 <li><p>Validate that the topology is still good</p>
 
-<p>  If some of the commits after the commit you changed are merge commits,
-  please be warned.  It is possible that <code class="inline">git rebase -p</code> will be unable to
-  properly recreate them.  Please inspect the resulting merge topology
-  <code class="inline">gitk --date-order HEAD ORIG_HEAD</code> to ensure that git did want you
-  wanted.  If it did not, there is not really any automated recourse.
-  You can reset back to the commit before the SHA you want to get rid
-  of, and then cherry-pick the normal commits and manually re-merge the
-  "bad" merges.  Or you can just suffer with the inappropriate topology
-  (perhaps creating fake merges <code class="inline">git merge --ours otherbranch</code> so that
-  subsequent development work on those branches will be properly merged
-  in with the correct merge-base).</p></li>
+<p>If some of the commits after the commit you changed are merge
+commits, please be warned.  It is possible
+that <code class="inline">git rebase -p</code> will be unable to
+properly recreate them.  Please inspect the resulting merge
+topology <code class="inline">gitk --date-order HEAD ORIG_HEAD</code>
+to ensure that git did want you wanted.  If it did not, there is not
+really any automated recourse.  You can reset back to the commit
+before the SHA you want to get rid of, and then cherry-pick the normal
+commits and manually re-merge the "bad" merges.  Or you can just
+suffer with the inappropriate topology (perhaps creating fake
+merges <code class="inline">git merge --ours otherbranch</code> so
+that subsequent development work on those branches will be properly
+merged in with the correct merge-base).</p></li>
+
 <li><p>Delete the nonce branch</p>
 
-<p>  You don't need it.  It was just there to communicate an SHA between
-  two steps in the above process.   <code class="inline">git branch -d nonce</code></p></li>
+<p>You don't need it.  It was just there to communicate an SHA between
+two steps in the above process.  <code class="inline">git branch -d
+nonce</code></p></li>
 </ul>
 
 
@@ -623,12 +666,12 @@ git rebase -p --onto $(git rev-parse nonce) HEAD^ $master
 
 <h2>Can you make a positive commit to fix the problem and what is the fix class?</h2>
 
-<p><a href="http://sethrobertson.github.com/GitBestPractices/#pubonce">Rewriting public history is a bad
-idea</a>.  It requires everyone
-else to do special things and you must publicly announce your failure.
-Ideally you will create either a commit to just fix the problem, or a
-new <code class="inline">git revert</code> commit to create a new commit which undoes what the
-commit target of the revert did.</p>
+<p><a href="http://sethrobertson.github.com/GitBestPractices/#pubonce">Rewriting
+public history is a bad idea</a>.  It requires everyone else to do
+special things and you must publicly announce your failure.  Ideally
+you will create either a commit to just fix the problem, or a
+new <code class="inline">git revert</code> commit to create a new
+commit which undoes what the commit target of the revert did.</p>
 
 <ul>
 <li><a  href="#pushed_restore_file" onclick="return(crumbs.both('#pushed_restore_file',this.innerHTML));">Yes, I can make a new commit but the bad commit trashed a particular file in error (among other good things I want to keep)</a></li>
@@ -660,11 +703,12 @@ commit (and all commits since then) should be destroyed.  If so, you
 can simply checkout a version of the file which you know is good.</p>
 
 <p>You must first identify the SHA of the commit containing the good
-version of the file.  You can do this using <code class="inline">gitk --date-order</code> or
-using <code class="inline">git log --graph --decorate --oneline</code> or perhaps <code class="inline">git log
---oneline -- filename</code> You are looking for the 40 character SHA-1 hash
-ID (or the 7 character abbreviation).  Yes, if you know the "&#94;" or
-"~" shortcuts you may use those.</p>
+version of the file.  You can do this using <code class="inline">gitk
+--date-order</code> or using <code class="inline">git log --graph
+--decorate --oneline</code> or perhaps <code class="inline">git log
+--oneline -- filename</code> You are looking for the 40 character
+SHA-1 hash ID (or the 7 character abbreviation).  Yes, if you know the
+"&#94;" or "~" shortcuts you may use those.</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git checkout SHA -- path/to/filename
@@ -679,17 +723,19 @@ You can then add and commit as normal to fix the problem.</p>
 
 <p>To create an positive commit to remove the effects of a simple
 (non-merge) commit, you must first identify the SHA of the commit you
-want to revert.  You can do this using <code class="inline">gitk --date-order</code> or using
-<code class="inline">git log --graph --decorate --oneline</code> You are looking for the 40
-character SHA-1 hash ID (or the 7 character abbreviation).  Yes, if
-you know the "&#94;" or "~" shortcuts you may use those.</p>
+want to revert.  You can do this using <code class="inline">gitk
+--date-order</code> or using <code class="inline">git log --graph
+--decorate --oneline</code> You are looking for the 40 character SHA-1
+hash ID (or the 7 character abbreviation).  Yes, if you know the
+"&#94;" or "~" shortcuts you may use those.</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git revert SHA
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
-<p>Obviously replace "SHA" with the reference you want to revert.  If you
-want to revert multiple SHA, you may specify a range or a list of SHA.</p>
+<p>Obviously replace "SHA" with the reference you want to revert.  If
+you want to revert multiple SHA, you may specify a range or a list of
+SHA.</p>
 
 <p><a name="pushed_new_merge" /></p><div name="crumbs"></div>
 
@@ -697,26 +743,28 @@ want to revert multiple SHA, you may specify a range or a list of SHA.</p>
 
 <p>Oh dear.  This is going to get complicated.</p>
 
-<p>To create an positive commit to remove the effects of a merge commit,
-you must first identify the SHA of the commit you want to revert.  You
-can do this using <code class="inline">gitk --date-order</code> or using <code class="inline">git log --graph
---decorate --oneline</code> You are looking for the 40 character SHA-1 hash
-ID (or the 7 character abbreviation).  Yes, if you know the "&#94;" or "~"
-shortcuts you may use those.</p>
+<p>To create an positive commit to remove the effects of a merge
+commit, you must first identify the SHA of the commit you want to
+revert.  You can do this using <code class="inline">gitk
+--date-order</code> or using <code class="inline">git log --graph
+--decorate --oneline</code> You are looking for the 40 character SHA-1
+hash ID (or the 7 character abbreviation).  Yes, if you know the
+"&#94;" or "~" shortcuts you may use those.</p>
 
-<p>Undoing the file modifications caused by the merge is about as simple
-as you might hope.  <code class="inline">git revert SHA</code>.  Unfortunately, this is just the
-tip of the iceberg.  The problem is, what happens if you want to merge
-that branch later, perhaps months later long after you have exiled
-this problem from your memory, either to this branch or to some other
-branch this branch merged into.  Well, the problem is git has it
-tracked in history that a merge occurred, so it is not going to
-attempt to remerge what it has already merged.  The fact that it was
-later reverted is irrelevant.  You could revert the revert, but that
-supposes that you remember that you need to do so.</p>
+<p>Undoing the file modifications caused by the merge is about as
+simple as you might hope.  <code class="inline">git revert SHA</code>.
+Unfortunately, this is just the tip of the iceberg.  The problem is,
+what happens if you want to merge that branch later, perhaps months
+later long after you have exiled this problem from your memory, either
+to this branch or to some other branch this branch merged into.  Well,
+the problem is git has it tracked in history that a merge occurred, so
+it is not going to attempt to remerge what it has already merged.  The
+fact that it was later reverted is irrelevant.  You could revert the
+revert, but that supposes that you remember that you need to do
+so.</p>
 
-<p>Another option is to abandon the branch you merged from, recreate it
-from the previous merge-base with the commits since then rebased or
+<p>Another option is to abandon the branch you merged from, recreate
+it from the previous merge-base with the commits since then rebased or
 cherry-picked over, and use the recreated branch from now on.  Then
 the new branch is unrelated and will merge properly.  Of course, if
 you have pushed the donor branch you cannot use the same name (that
@@ -743,8 +791,8 @@ command is a bit complicated, and will get rid of all ignored or
 untracked files in your working directory, so please be sure you have
 properly backed up everything.</p>
 
-<p>In the following example please replace $destination with the name of the
-branch whose contents you want to overwrite.  $source should be
+<p>In the following example please replace $destination with the name
+of the branch whose contents you want to overwrite.  $source should be
 replaced with the name of the branch whose contents are good.</p>
 
 <p>You actually are being provided with two methods.  The first set is
@@ -785,16 +833,19 @@ git commit -m "Rewrite $destination with $source"
 <p>Hopefully you read the previous reference and fully understand why
 this is bad and what you have to tell everyone else to do in order to
 recover from this condition.  Assuming this, you simply need to go to
-the parts of this document which assume that you have <em>not</em> yet pushed
-and do them as normal.  Then you need to do a "force push" <code class="inline">git push
--f</code> to thrust your updated history upon everyone else.  As you read in
-the reference, this may be denied by default by your upstream
-repository (see <code class="inline">git config receive.denyNonFastForwards</code>, but can be
-disabled (temporarily I suggest) if you have access to the server.
-You then will need to send mail to everyone who <em>might</em> have pulled
-the history telling them that history was rewritten and they need to
-<code class="inline">git pull --rebase</code> and do a bit of history rewriting of their own if
-they branched or tagged from the now outdated history.</p>
+the parts of this document which assume that you have <em>not</em> yet
+pushed and do them as normal.  Then you need to do a "force
+push" <code class="inline">git push -f</code> to thrust your updated
+history upon everyone else.  As you read in the reference, this may be
+denied by default by your upstream repository
+(see <code class="inline">git config
+receive.denyNonFastForwards</code>, but can be disabled (temporarily I
+suggest) if you have access to the server.  You then will need to send
+mail to everyone who <em>might</em> have pulled the history telling
+them that history was rewritten and they need
+to <code class="inline">git pull --rebase</code> and do a bit of
+history rewriting of their own if they branched or tagged from the now
+outdated history.</p>
 
 <p>Proceed with <a  href="#unpushed" onclick="return(crumbs.both('#unpushed',this.innerHTML));">fixing the old commit</a>.</p>
 
@@ -802,14 +853,15 @@ they branched or tagged from the now outdated history.</p>
 
 <h2>I have lost some commits I know I made</h2>
 
-<p>First make sure that it was not on a different branch.  Try <code class="inline">git log
--Sfoo --all</code> where "foo" is replaced with something unique in the
-commits you made.  You can also search with <code class="inline">gitk --all --date-order</code>
-to see if anything looks likely.</p>
+<p>First make sure that it was not on a different branch.
+Try <code class="inline">git log -Sfoo --all</code> where "foo" is
+replaced with something unique in the commits you made.  You can also
+search with <code class="inline">gitk --all --date-order</code> to see
+if anything looks likely.</p>
 
-<p>Check your stashes, <code class="inline">git stash list</code>, to see if you might have stashed
-instead of committing.  You can also visualize what the stashes might
-be associated with via:</p>
+<p>Check your stashes, <code class="inline">git stash list</code>, to
+see if you might have stashed instead of committing.  You can also
+visualize what the stashes might be associated with via:</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 gitk --all --date-order $(git stash list | awk -F: '{print $1};')
@@ -819,12 +871,12 @@ gitk --all --date-order $(git stash list | awk -F: '{print $1};')
 around including ones on other hosts and in testing environments, and
 in your backups.</p>
 
-<p>Once you are fully convinced that it is well and truly lost, you can
-start looking elsewhere in git.  Specifically, you should first look
-at the reflog which contains the history of what happened to the tip
-of your branches for the past two weeks or so.  You can of course say
-<code class="inline">git log -g</code> or <code class="inline">git reflog</code> to view it, but it may be best visualized
-with:</p>
+<p>Once you are fully convinced that it is well and truly lost, you
+can start looking elsewhere in git.  Specifically, you should first
+look at the reflog which contains the history of what happened to the
+tip of your branches for the past two weeks or so.  You can of course
+say <code class="inline">git log -g</code> or <code class="inline">git
+reflog</code> to view it, but it may be best visualized with:</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 gitk --all --date-order $(git reflog --pretty=%H)
@@ -833,12 +885,14 @@ gitk --all --date-order $(git reflog --pretty=%H)
 <p>Next you can look in git's lost and found.  Dangling commits get
 generated for many good reasons including resets and rebases.  Still
 those activities might have mislaid the commits you were interested
-in.  These might be best visualized with <code class="inline">gitk --all --date-order
-$(git fsck | grep "dangling commit" | awk '{print $3;}')</code></p>
+in.  These might be best visualized with <code class="inline">gitk
+--all --date-order $(git fsck | grep "dangling commit" | awk '{print
+$3;}')</code></p>
 
 <p>The last place you can look is in dangling blobs.  These are files
-which have been <code class="inline">git add</code>ed but not attached to a commit for some
-(usually innocuous) reason.  To look at the files, one at a time, run:</p>
+which have been <code class="inline">git add</code>ed but not attached
+to a commit for some (usually innocuous) reason.  To look at the
+files, one at a time, run:</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git fsck | grep "dangling blob" | while read x x s; do
@@ -847,13 +901,15 @@ done
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
 <p>Once you find the changes you are interested in, there are several
-ways you can proceed.  You can <code class="inline">git reset --hard SHA</code> your current
-branch to the history and current state of that SHA (probably not
-recommended for stashes), you can <code class="inline">git branch newbranch SHA</code> to link
-the old history to a new branch name (also not recommended for
-stashes), you can <code class="inline">git stash apply SHA</code> (for the non-index commit in a
-git-stash), you can <code class="inline">git stash merge SHA</code> or <code class="inline">git cherry-pick SHA</code>
-(for either part of a stash or non-stashes), etc.</p>
+ways you can proceed.  You can <code class="inline">git reset --hard
+SHA</code> your current branch to the history and current state of
+that SHA (probably not recommended for stashes), you
+can <code class="inline">git branch newbranch SHA</code> to link the
+old history to a new branch name (also not recommended for stashes),
+you can <code class="inline">git stash apply SHA</code> (for the
+non-index commit in a git-stash), you can <code class="inline">git
+stash merge SHA</code> or <code class="inline">git cherry-pick
+SHA</code> (for either part of a stash or non-stashes), etc.</p>
 
 <p><a name="undo_tip" /></p><div name="crumbs"></div>
 
@@ -864,18 +920,20 @@ recorded in the git reflog.  You may then use the reflog to look at
 the state of the branches at previous times or even go back to the
 state of the local branch at the time.</p>
 
-<p>While this happens for every git command affecting HEAD, it is usually
-most interesting when attempting to recover from a bad rebase or
-reset or an --amend'ed commit.  There are better ways (listed by the rest of this document)
-from recovering from the more mundane reflog updates.</p>
+<p>While this happens for every git command affecting HEAD, it is
+usually most interesting when attempting to recover from a bad rebase
+or reset or an --amend'ed commit.  There are better ways (listed by
+the rest of this document) from recovering from the more mundane
+reflog updates.</p>
 
-<p>The first thing you need to do is identify the SHA of the good state
-of your branch.  You can do this by looking at the output of <code class="inline">git log
--g</code> or, my preference, you can look graphically at <code class="inline">gitk --all
---date-order $(git log -g --pretty=%H)</code></p>
+<p>The first thing you need to do is identify the SHA of the good
+state of your branch.  You can do this by looking at the output
+of <code class="inline">git log -g</code> or, my preference, you can
+look graphically at <code class="inline">gitk --all --date-order $(git
+log -g --pretty=%H)</code></p>
 
-<p>Once you have found the correct state of your branch, you can get back
-to that state by running</p>
+<p>Once you have found the correct state of your branch, you can get
+back to that state by running</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git reset --hard SHA
@@ -887,11 +945,13 @@ git reset --hard SHA
 git checkout -b newbranch SHA
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
-<p>Obviously replace "SHA" in both commands with the reference you want to get back to.</p>
+<p>Obviously replace "SHA" in both commands with the reference you
+want to get back to.</p>
 
 <p>Note that any other commits you have performed since you did that
-"bad" operation will then be lost.  You could <code class="inline">git cherry-pick</code> or
-<code class="inline">git rebase -p --onto</code> those other commits over.</p>
+"bad" operation will then be lost.  You could <code class="inline">git
+cherry-pick</code> or <code class="inline">git rebase -p --onto</code>
+those other commits over.</p>
 
 <p><a name="badmerge" /></p><div name="crumbs"></div>
 
@@ -901,7 +961,8 @@ git checkout -b newbranch SHA
 conflicts, and you have now decided that it was a big mistake and want
 to get out of the merge.</p>
 
-<p>The fastest way out of the merge is <code class="inline">git merge --abort</code></p>
+<p>The fastest way out of the merge is <code class="inline">git merge
+--abort</code></p>
 
 <p><a name="badrebase" /></p><div name="crumbs"></div>
 
@@ -911,7 +972,8 @@ to get out of the merge.</p>
 conflicts, and you have now decided that it was a big mistake and want
 to get out of the merge.</p>
 
-<p>The fastest way out of the merge is <code class="inline">git rebase --abort</code></p>
+<p>The fastest way out of the merge is <code class="inline">git rebase
+--abort</code></p>
 
 <p><a name="disclaimer" /></p><div name="crumbs"></div>
 
