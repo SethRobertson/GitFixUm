@@ -15,6 +15,7 @@
       pre { border:1pt solid black; padding: 0em 1em 1em 1em; float: left; }
       pre.none { border:0pt solid white; float: none;}
       code.inline { white-space: nowrap; border:1pt solid gray; padding: 1pt; }
+      table,td,tr,th { border:1px solid black; }
     </style>
     <script type='text/javascript'>
 var delim = ' → ';
@@ -123,23 +124,46 @@ to undo what you have done.</p>
 <ul>
 <li><a  href="#badmerge" onclick="return(crumbs.both('#badmerge',this.innerHTML));">I am in the middle of a bad merge</a></li>
 <li><a  href="#badrebase" onclick="return(crumbs.both('#badrebase',this.innerHTML));">I am in the middle of a bad rebase</a></li>
-<li><a  href="#committed" onclick="return(crumbs.both('#committed',this.innerHTML));">Yes, I committed</a></li>
+<li><a  href="#committed" onclick="return(crumbs.both('#committed',this.innerHTML));">Yes, commits were made</a></li>
 <li><a  href="#uncommitted" onclick="return(crumbs.both('#uncommitted',this.innerHTML));">No, I have not yet committed</a></li>
 </ul>
 
 
 <p><a name="uncommitted" /></p><div name="crumbs"></div>
 
-<h2>Everything or just some things?</h2>
+<h2>Discard everything or just some things?</h2>
 
 <p>So you have not yet committed, the question is now whether you want
 to undo everything which you have done since the last commit or just
-some things?</p>
+some things, or just save what you have done?</p>
 
 <ul>
 <li><a  href="#uncommitted_everything" onclick="return(crumbs.both('#uncommitted_everything',this.innerHTML));">Discard everything</a></li>
 <li><a  href="#uncommitted_somethings" onclick="return(crumbs.both('#uncommitted_somethings',this.innerHTML));">Discard some things</a></li>
+<li><a  href="#uncommitted_commit" onclick="return(crumbs.both('#uncommitted_commit,this.innerHTML));">I want to save my changes</a></li>
 </ul>
+
+
+<p><a name="uncommitted_commit" /></p><div name="crumbs"></div>
+
+<h2>How to save uncommitted changes</h2>
+
+<p>There are five ways you can save your uncommitted change.  I also
+suggest you read <a href="http://progit.org/book">Pro Git</a> as these
+are pretty basic git operations.</p>
+
+<table>
+<tr><th>Description</th><th>Command</th></tr>
+<tr><td>Commit them on the local branch.</td><td><code class="inline">git commit -am "My descriptive message"</code></td></tr>
+<tr><td>Commit them on another branch, no checkout conflicts.</td><td><code class="inline">git checkout otherbranch && git commit -am "My descriptive message"</code></td></tr>
+<tr><td>Commit them on another branch, conflicts.</td><td><code class="inline">git stash; git checkout otherbranch; git stash apply; : "resolve conflicts"; git commit -am "My descriptive message"; git stash drop</code></td></tr>
+<tr><td>Commit them on a new branch.</td><td><code class="inline">git checkout -b newbranch; git commit -am "My descriptive message"</code></td></tr>
+<tr><td>Stash them for a rainy day.</td><td><code class="inline">git stash save "my descriptive name"</code></td></tr>
+</table>
+
+<p>Using <code class="inline">git add -p</code> to add/commit only some
+changes to make multiple commits is left as an exercise for the
+reader.</p>
 
 
 <p><a name="uncommitted_everything" /></p><div name="crumbs"></div>
@@ -241,8 +265,12 @@ safe.)</p>
 <h2>Have you pushed?</h2>
 
 <p>So you have committed, the question is now whether you have made
-your changes publicly available or not.  Publishing history is seminal
-event.</p>
+your changes (or at least the changes you are interesting in "fixing")
+publicly available or not.  Publishing history is seminal event.</p>
+
+<p>If you are dealing with commits someone else made, then
+this question covers whether they have pushed, and since you
+have their commits, the answer is almost certainly "yes".</p>
 
 <p>Please note in any and all events, the recipes provided here will
 typically (only one exception which will self-notify) only modify the
@@ -261,8 +289,8 @@ cut your seat belts, you can expire the reflog now and garbage collect
 with immediate pruning.</p>
 
 <ul>
-<li><a  href="#pushed" onclick="return(crumbs.both('#pushed',this.innerHTML));">Yes, I pushed</a></li>
-<li><a  href="#unpushed" onclick="return(crumbs.both('#unpushed',this.innerHTML));">No, I did not push</a></li>
+<li><a  href="#pushed" onclick="return(crumbs.both('#pushed',this.innerHTML));">Yes, pushes were made</a></li>
+<li><a  href="#unpushed" onclick="return(crumbs.both('#unpushed',this.innerHTML));">No pushes</a></li>
 </ul>
 
 
