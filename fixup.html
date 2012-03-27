@@ -155,7 +155,7 @@ are pretty basic git operations.</p>
 <table>
 <tr><th>Description</th><th>Command</th></tr>
 <tr><td>Commit them on the local branch.</td><td><code class="inline">git commit -am "My descriptive message"</code></td></tr>
-<tr><td>Commit them on another branch, no checkout conflicts.</td><td><code class="inline">git checkout otherbranch && git commit -am "My descriptive message"</code></td></tr>
+<tr><td>Commit them on another branch, no checkout conflicts.</td><td><code class="inline">git checkout otherbranch &amp;&amp; git commit -am "My descriptive message"</code></td></tr>
 <tr><td>Commit them on another branch, conflicts.</td><td><code class="inline">git stash; git checkout otherbranch; git stash apply; : "resolve conflicts"; git commit -am "My descriptive message"; git stash drop</code></td></tr>
 <tr><td>Commit them on a new branch.</td><td><code class="inline">git checkout -b newbranch; git commit -am "My descriptive message"</code></td></tr>
 <tr><td>Stash them for a rainy day.</td><td><code class="inline">git stash save "my descriptive name"</code></td></tr>
@@ -1040,7 +1040,7 @@ maintained back to the <a href="http://sethrobertson.github.com/GitFixUm/">autho
 <p><a name="nonaffil" /></p>
 <p>Not affiliated with Chooseco, LLC's "Choose Your Own Adventure"ⓡ.
 Good books, but a little light on the details of recovering from git
-merge errors to my taste.
+merge errors to my taste.</p>
 
 <p><a name="thanks" /></p><div name="crumbs"></div>
 
