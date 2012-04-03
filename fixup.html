@@ -380,9 +380,14 @@ take with the most recent commit.</p>
 <p>To remove the last commit from git, you can simply
 run <code class="inline">git reset --hard HEAD^</code> If you are
 removing multiple commits from the top, you can
-run <code class="inline">git reset HEAD~2</code> to remove the last
+run <code class="inline">git reset --hard HEAD~2</code> to remove the last
 two commits.  You can increase the number to remove even more
 commits.</p>
+
+<p>If you want to "uncommit" the commits, but keep the changes around
+for further processing, remove the "--hard": <code class="inline">git
+reset HEAD</code> which will evict the commits from the branch and
+from the index, but leave the working tree around.</p>
 
 <p>If you want to save the commits on a new branch name, then
 run <code class="inline">git branch
@@ -1118,7 +1123,7 @@ is at the top of the page.</p>
 <p>Hopefully that should do it.</p>
 
     </div>
-    <div id='footer'><p><a href="..">Other technical projects</a></p></div>
+    <div id='footer'><p><a href="http://sethrobertson.github.com">Other technical projects</a></p></div>
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
