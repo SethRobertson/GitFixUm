@@ -370,6 +370,7 @@ take with the most recent commit.</p>
 <ul>
 <li><a  href="#remove_last" onclick="return(crumbs.both('#remove_last',this.innerHTML));">I want to remove the last commit</a></li>
 <li><a  href="#update_last" onclick="return(crumbs.both('#update_last',this.innerHTML));">I want to update the author/message/contents of the last commit</a></li>
+<li><a  href="#remove_last" onclick="return(crumbs.both('#rework_last',this.innerHTML));">I want to reorder, split, merge, or significantly rework the last commit(s)</a></li>
 </ul>
 
 
@@ -385,14 +386,43 @@ two commits.  You can increase the number to remove even more
 commits.</p>
 
 <p>If you want to "uncommit" the commits, but keep the changes around
-for further processing, remove the "--hard": <code class="inline">git
-reset HEAD</code> which will evict the commits from the branch and
-from the index, but leave the working tree around.</p>
+for <a href="#rework_last">reworking</a>, remove the
+"--hard": <code class="inline">git reset HEAD^</code> which will evict
+the commits from the branch and from the index, but leave the working
+tree around.</p>
 
 <p>If you want to save the commits on a new branch name, then
 run <code class="inline">git branch
 newbranchname</code> <em>before</em> doing
 the <code class="inline">git reset</code>.</p>
+
+
+<p><a name="rework_last" /></p><div name="crumbs"></div>
+
+<h2>Reworking the last commit</h2>
+
+<p><b>WARNING:</b> These techniques should <em>only</em> be used for
+non-merge commits.  If you have a merge commit, you are better off
+deleting the merge and recreating it.</p>
+
+<p>If you want to perform significant work on the last commit, you can
+simply <code class="inline">git reset HEAD^</code>.  This will undo
+the commit (peal it off) and restore the index to the state it was in
+before that commit, leaving the working directory with the changes
+uncommitted, and you can fix whatever you need to fix and try
+again.<p>
+
+<p>You can do this with multiple (non-merge) commits in a row (using
+"HEAD^^" or similar techniques), but then of course you lose the
+separation between the commits and are left with an undifferentiated
+working directory.  If you are trying to squash all of the commits
+together, or rework which bits are in which commits, this may be what
+you want.</p>
+
+<p>If you want to reorder commits, split them, merge them together, or
+otherwise perfect the commits, you should
+explore <a href="http://sethrobertson.github.com/GitPostProduction">Post
+Production Editing Using Git</a>.</p>
 
 
 <p><a name="move_commit" /></p><div name="crumbs"></div>
@@ -482,6 +512,10 @@ the <code class="inline">git add</code> suggested in the previous
 paragraph.  You can also use --author to change the author
 information.</p>
 
+<p>If you want to do something more sophisticated that what "--amend"
+allows, please investigate <a href="#rework_last">reworking</a> the
+last commit.</p>
+
 
 <p><a name="change_deep" /></p><div name="crumbs"></div>
 
@@ -517,11 +551,11 @@ the tip of your branch are merge commits, it is possible
 that <code class="inline">git rebase -p</code> will be unable to
 properly recreate them.  Please inspect the resulting merge
 topology <code class="inline">gitk --date-order HEAD ORIG_HEAD</code>
-to ensure that git did want you wanted.  If it did not, there is not
-really any automated recourse.  You can reset back to the commit
-before the SHA you want to get rid of, and then cherry-pick the normal
-commits and manually re-merge the "bad" merges.  Or you can just
-suffer with the inappropriate topology (perhaps creating fake
+and contents to ensure that git did want you wanted.  If it did not,
+there is not really any automated recourse.  You can reset back to the
+commit before the SHA you want to get rid of, and then cherry-pick the
+normal commits and manually re-merge the "bad" merges.  Or you can
+just suffer with the inappropriate topology (perhaps creating fake
 merges <code class="inline">git merge --ours otherbranch</code> so
 that subsequent development work on those branches will be properly
 merged in with the correct merge-base).</p>
@@ -606,6 +640,7 @@ change, <code class="inline">git add</code> as normal, and then
 run <code class="inline">git commit --amend</code> (including changing
 the author information with --author).  When you are satisfied, you
 should run <code class="inline">git rebase --continue</code></p>
+
 
 <p><a name="change_single_deep_merge" /></p><div name="crumbs"></div>
 
