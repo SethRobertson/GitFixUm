@@ -573,20 +573,22 @@ merged in with the correct merge-base).</p>
 
 <h2>Changing all commits during all of git's history</h2>
 
-<p>Note that this will <strong>rewrite repository history</strong>, and is
-<a href="http://sethrobertson.github.io/GitBestPractices/#pubonce">not
-to be done lightly<a>. If you're going to proceed, you need a good
-reason - are you trying to get rid of unwanted data, or something more
-complicated?</p>
+<p>You have not pushed but still somehow want to change all commits in
+all of git's history?  Strange.</p>
 
 <ul>
-<li><a  href="#bfg" onclick="return(crumbs.both('#bfg',this.innerHTML));">Just want to remove unwanted data (big files, private data, etc)</a></li>
-<li><a  href="#filterbranch" onclick="return(crumbs.both('#filterbranch',this.innerHTML));">Not just removing data, for instance re-arranging directory structure for all commits</a></li>
+<li><a  href="#filterbranch" onclick="return(crumbs.both('#filterbranch',this.innerHTML));">Not just removing data (eg. re-arranging directory structure for all commits), or just wanting to use standard tools</a></li>
+<li><a  href="#bfg" onclick="return(crumbs.both('#bfg',this.innerHTML));">Want to only remove unwanted data (big files, private data, etc) and am willing to use a third party tool to do the job more quickly</a></li>
 </ul>
 
 <p><a name="bfg" /></p><div name="crumbs"></div>
 
-<h2>Use The BFG to remove unwanted data, like big files or passwords, from Git repository history</h2>
+<h2>Use The BFG to remove unwanted data, like big files or passwords,
+from Git repository history.</h2>
+
+<p>Disclaimer, the author of this document has not qualified this tool
+(including for safety or usability for any purpose), but recognizes
+the need which this tool fills for large repositories.</p>
 
 <p><a href="http://rtyley.github.io/bfg-repo-cleaner/">The BFG</a> is a simpler,
 faster alternative to <code class="inline">git filter-branch</code>,
