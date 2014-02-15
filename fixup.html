@@ -565,23 +565,57 @@ merged in with the correct merge-base).</p>
 <h2>Do you want to remove/change/rename a particular file/directory from all commits during all of git's history</h2>
 
 <ul>
-<li><a  href="#filterbranch" onclick="return(crumbs.both('#filterbranch',this.innerHTML));">Yes please, I want to make a change involving all git commits</a></li>
+<li><a  href="#bulk_rewrite_history" onclick="return(crumbs.both('#bulk_rewrite_history',this.innerHTML));">Yes please, I want to make a change involving all git commits</a></li>
 <li><a  href="#change_single_deep" onclick="return(crumbs.both('#change_single_deep',this.innerHTML));">No, I only want to change a single commit</a></li>
 </ul>
 
-
-<p><a name="filterbranch" /></p><div name="crumbs"></div>
+<p><a name="bulk_rewrite_history" /></p><div name="crumbs"></div>
 
 <h2>Changing all commits during all of git's history</h2>
 
-<p>You have not pushed but still somehow want to change all commits in
-all of git's history?  Strange.</p>
+<p>Note that this will <strong>rewrite repository history</strong>, and is
+<a href="http://sethrobertson.github.io/GitBestPractices/#pubonce">not
+to be done lightly<a>. If you're going to proceed, you need a good
+reason - are you trying to get rid of unwanted data, or something more
+complicated?</p>
 
-<p>You want to use the <code class="inline">git filter-branch</code>
-command to perform this action.  This command is quite involved and
-complex, so I will simply point you at
-the <a href="http://jk.gs/git-filter-branch.html">manual page</a> and
-remind you
+<ul>
+<li><a  href="#bfg" onclick="return(crumbs.both('#bfg',this.innerHTML));">Just want to remove unwanted data (big files, private data, etc)</a></li>
+<li><a  href="#filterbranch" onclick="return(crumbs.both('#filterbranch',this.innerHTML));">Not just removing data, for instance re-arranging directory structure for all commits</a></li>
+</ul>
+
+<p><a name="bfg" /></p><div name="crumbs"></div>
+
+<h2>Use The BFG to remove unwanted data, like big files or passwords, from Git repository history</h2>
+
+<p><a href="http://rtyley.github.io/bfg-repo-cleaner/">The BFG</a> is a simpler,
+faster alternative to <code class="inline">git filter-branch</code>,
+specifically designed for cleansing bad data out of your Git repository
+history - it operates over all branches and tags in your project to
+purge data you don't want retained <strong>anywhere</strong>. Some
+<a href="http://rtyley.github.io/bfg-repo-cleaner/#examples">examples</a>:</p>
+
+<p>Remove all blobs bigger than 1 megabyte (to make your repo take up less space):</p>
+<div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
+$ bfg <strong>--strip-blobs-bigger-than 1M</strong>  my-repo.git
+</code></pre><div class="befaftpre"><!-- --></div></div>
+
+<p>Replace all passwords listed in a file with <code class="inline">***REMOVED***</code>
+wherever they occur in your repository :</p>
+<div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
+$ bfg <strong>--replace-text passwords.txt</strong>  my-repo.git
+</code></pre><div class="befaftpre"><!-- --></div></div>
+
+<p><a name="filterbranch" /></p><div name="crumbs"></div>
+
+<h2>Arbitrarily changing all commits during all of git's history</h2>
+
+<p><code class="inline">git filter-branch</code> is a powerful, complex
+command that allows you to perform arbitary scriptable operations on all
+commits in git repository history.  This flexibility can make it quite slow
+on big repos, and makes using the command quite difficult, so I will simply
+point you at the <a href="http://jk.gs/git-filter-branch.html">manual page</a>
+and remind you
 that <a href="http://sethrobertson.github.com/GitBestPractices/">best
 practice</a> is to always use <code>"--tag-name-filter cat --
 --all"</code> unless you are really sure you know what you are
