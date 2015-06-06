@@ -1,0 +1,9 @@
+created: 20150606030903029
+modified: 20150606055703075
+tags: Questions
+title: Do you want to remove or change the commit message/contents of the last commit?
+type: text/vnd.tiddlywiki
+
+* [[I want to remove the last commit|Removing the last commit]]
+* [[I want to update the author/message/contents of the last commit|Updating the last commit's contents or commit message]]
+* [[I want to reorder, split, merge, or significantly rework the last commit(s)|Reworking the last commit]]

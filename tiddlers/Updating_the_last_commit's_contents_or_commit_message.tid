@@ -1,0 +1,13 @@
+created: 20150606031550308
+modified: 20150606134030576
+tags: Answers
+title: Updating the last commit's contents or commit message
+type: text/vnd.tiddlywiki
+
+To update the last commit's contents, author, or commit message for a commit which you have not pushed or otherwise published, first you need to get the index into the correct state you wish the commit to reflect. If you are changing the commit message only, you need do nothing. If you are changing the file contents, typically you would modify the working directory and use `git add` as normal.
+
+Note if you wish to restore a file to a known good state, you can use: `git checkout GOODSHA -- path/to/filename`.
+
+Once the index is in the correct state, then you can run `git commit --amend` to update the last commit. Yes, you can use `-a` if you want to avoid the `git add` suggested in the previous paragraph. You can also use `--author` to change the author information.
+
+If you want to do something more sophisticated that what `--amend` allows, please investigate [[reworking|Reworking the last commit]] the last commit.

@@ -1,0 +1,10 @@
+created: 20150606033325591
+modified: 20150606055552392
+tags: Questions
+title: Changing all commits during all of git's history
+type: text/vnd.tiddlywiki
+
+You have not pushed but still somehow want to change all commits in all of git's history? Strange.
+
+* [[Not just removing data (eg. re-arranging directory structure for all commits), or just wanting to use standard tools|Arbitrarily changing all commits during all of git's history]]
+* [[Want to only remove unwanted data (big files, private data, etc) and am willing to use a third party tool to do the job more quickly|Use The BFG to remove unwanted data, like big files or passwords, from Git repository history]]

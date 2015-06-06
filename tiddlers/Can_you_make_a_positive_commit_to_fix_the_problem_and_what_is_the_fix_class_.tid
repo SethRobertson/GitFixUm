@@ -1,0 +1,15 @@
+created: 20150605215333425
+modified: 20150606055527480
+tags: Questions
+title: Can you make a positive commit to fix the problem and what is the fix class?
+type: text/vnd.tiddlywiki
+
+\define history(url) [[Rewriting public history|$url$#pubonce]]
+<$macrocall $name="history" url={{BestPractice!!url}}/> is a bad idea. It requires everyone else to do special things and you must publicly announce your failure. Ideally you will create either a commit to just fix the problem, or a new `git revert` commit to create a new commit which undoes what the commit target of the revert did.
+
+* [[Yes, I can make a new commit but the bad commit trashed a particular file in error (among other good things I want to keep)|Making a new commit to restore a file deleted earlier]]
+* [[Yes, I can make a new commit and the bad commit is a merge commit I want to totally remove|Reverting a merge commit]]
+* [[Yes, I can make a new commit but the bad commit is a simple commit I want to totally remove|Reverting an old simple pushed commit]]
+* [[Yes, I can make a new commit and the bad commit has an error in it I want to fix|Making a new commit to fix an old commit]]
+* [[Yes, I can make a new commit but history is all messed up and I have a replacement branch|Rewriting an old branch with a new branch with a new commit]]
+* [[No, I am a bad person and must rewrite published history|I am a bad person and must rewrite published history]]

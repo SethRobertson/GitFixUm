@@ -1,0 +1,13 @@
+created: 20150605132135076
+modified: 20150606055835668
+order: 2
+tags: Questions
+title: Have you committed?
+type: text/vnd.tiddlywiki
+
+If you have not yet committed that which you do not want, git does not know anything about what you have done yet, so it is pretty easy to undo what you have done.
+
+* [[I am in the middle of a bad merge|Recovering from a borked/stupid/moribund merge]]
+* [[I am in the middle of a bad rebase|Recovering from a borked/stupid/moribund rebase]]
+* [[Yes, commits were made|Do you have uncommitted stuff in your working directory?]]
+* [[No, I have not yet committed|Discard everything or just some things?]]

@@ -1,0 +1,8 @@
+created: 20150606033227091
+modified: 20150606055823333
+tags: Questions
+title: Do you want to remove/change/rename a particular file/directory from all commits during all of git's history
+type: text/vnd.tiddlywiki
+
+* [[Yes please, I want to make a change involving all git commits|Changing all commits during all of git's history]]
+* [[No, I only want to change a single commit|Is a merge commit involved?]]

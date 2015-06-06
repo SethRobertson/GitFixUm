@@ -1,0 +1,32 @@
+created: 20150605211409956
+modified: 20150606044140428
+title: I have lost some commits I know I made
+type: text/vnd.tiddlywiki
+
+First make sure that it was not on a different branch. Try `git log -Sfoo --all` where "foo" is replaced with something unique in the commits you made. You can also search with `gitk --all --date-order` to see if anything looks likely.
+
+Check your stashes, `git stash list`, to see if you might have stashed instead of committing. You can also visualize what the stashes might be associated with via:
+
+```sh
+gitk --all --date-order $(git stash list | awk -F: '{print $1};')
+```
+
+Next, you should probably look in other repositories you have lying around including ones on other hosts and in testing environments, and in your backups.
+
+Once you are fully convinced that it is well and truly lost, you can start looking elsewhere in git. Specifically, you should first look at the reflog which contains the history of what happened to the tip of your branches for the past two weeks or so. You can of course say `git log -g` or `git reflog` to view it, but it may be best visualized with:
+
+```sh
+gitk --all --date-order $(git reflog --pretty=%H)
+```
+
+Next you can look in git's lost and found. Dangling commits get generated for many good reasons including resets and rebases. Still those activities might have mislaid the commits you were interested in. These might be best visualized with `gitk --all --date-order $(git fsck | grep "dangling commit" | awk '{print $3;}')`
+
+The last place you can look is in dangling blobs. These are files which have been `git add`ed but not attached to a commit for some (usually innocuous) reason. To look at the files, one at a time, run:
+
+```sh
+git fsck | grep "dangling blob" | while read x x s; do
+  git show $s | less;
+done
+```
+
+Once you find the changes you are interested in, there are several ways you can proceed. You can `git reset --hard SHA` your current branch to the history and current state of that SHA (probably not recommended for stashes), you can `git branch newbranch SHA` to link the old history to a new branch name (also not recommended for stashes), you can `git stash apply SHA` (for the non-index commit in a git-stash), you can `git stash merge SHA` or `git cherry-pick SHA` (for either part of a stash or non-stashes), etc.

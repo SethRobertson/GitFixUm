@@ -1,0 +1,26 @@
+created: 20150605123912463
+modified: 20150606142923491
+tags: TableOfContents
+title: Copyright
+type: text/vnd.tiddlywiki
+
+\define center(text) <div style="text-align: center">$text$</div>
+Copyright ⓒ 2012 [[Seth Robertson]]
+
+This original document is licensed and distributed to you through the use of two licenses. You may pick the license you prefer.
+
+----
+
+{{CC BY-SA}}
+
+<<center "''OR''">>
+
+{{GNU FDL}}
+
+----
+
+Conversion from plain HTML to [[TiddlyWiki|http://tiddlywiki.com/]] was done by [[Devin Weaver]].
+
+I and [[Seth Robertson]] would appreciate changes being sent back to me, being notified if this is used or highlighted in some special way, and links being maintained back to the authoritative source. Thanks.
+
+{{Non Afilliation}}

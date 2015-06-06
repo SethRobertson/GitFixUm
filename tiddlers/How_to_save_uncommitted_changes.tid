@@ -1,0 +1,11 @@
+created: 20150606023420818
+modified: 20150606060044683
+tags: Answers
+title: How to save uncommitted changes
+type: text/vnd.tiddlywiki
+
+There are five ways you can save your uncommitted change. I also suggest you read [[Pro Git|http://git-scm.com/book/]] as these are pretty basic git operations.
+
+{{UncommittedChangesCheatSheet}}
+
+Using `git add -p` to add/commit only some changes to make multiple commits is left as an exercise for the reader.

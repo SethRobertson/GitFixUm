@@ -1,0 +1,16 @@
+created: 20150605213557369
+modified: 20150606055848564
+tags: Questions
+title: Have you pushed?
+type: text/vnd.tiddlywiki
+
+So you have committed, the question is now whether you have made your changes (or at least the changes you are interesting in "fixing") publicly available or not. Publishing history is a seminal event.
+
+If you are dealing with commits someone else made, then this question covers whether they have pushed, and since you have their commits, the answer is almost certainly "yes".
+
+Please note in any and all events, the recipes provided here will typically (only one exception which will self-notify) only modify the current branch you are on. Specifically any tags or branches involving the commit you are changing or a child of that commit will not be modified. You must deal with those separately. Look at `gitk --all --date-order` to help visualize everything what other git references might need to be updated.
+
+Also note that these commands will fix up the referenced commits in your repository. There will be reflog'd and dangling commits holding the state you just corrected. This is normally a good thing and it will eventually go away by itself, but if for some reason you want to cut your seat belts, you can expire the reflog now and garbage collect with immediate pruning.
+
+* [[Yes, pushes were made|Can you make a positive commit to fix the problem and what is the fix class?]]
+* [[No pushes|Do you want to discard all unpushed changes on this branch?]]

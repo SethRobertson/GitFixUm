@@ -1,0 +1,13 @@
+created: 20150606140353318
+modified: 20150606142919605
+tags: 
+title: CC BY-SA
+type: text/vnd.tiddlywiki
+
+\define cc-link(content) <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-sa/3.0/">$content$</a>
+
+<div style="text-align: center">
+<<cc-link content:"[img[CCBYSA.png]]">>
+</div>
+
+This work is licensed under a <<cc-link content:"Creative Commons Attribution-ShareAlike 3.0 International License">>.

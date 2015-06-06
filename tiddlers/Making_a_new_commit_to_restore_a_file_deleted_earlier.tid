@@ -1,0 +1,15 @@
+created: 20150605215655631
+modified: 20150606060201897
+tags: Answers
+title: Making a new commit to restore a file deleted earlier
+type: text/vnd.tiddlywiki
+
+The file may have been deleted or every change to that file in that commit (and all commits since then) should be destroyed. If so, you can simply checkout a version of the file which you know is good.
+
+You must first identify the SHA of the commit containing the good version of the file. {{FindingACommit}}
+
+```sh
+git checkout SHA -- path/to/filename
+```
+
+Obviously replace "SHA" with the reference that is good. You can then add and commit as normal to fix the problem.

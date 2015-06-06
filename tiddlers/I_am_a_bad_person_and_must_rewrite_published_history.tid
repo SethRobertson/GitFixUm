@@ -1,0 +1,9 @@
+created: 20150605221421477
+modified: 20150606060138091
+tags: Answers
+title: I am a bad person and must rewrite published history
+type: text/vnd.tiddlywiki
+
+Hopefully you read the previous reference and fully understand why this is bad and what you have to tell everyone else to do in order to recover from this condition. Assuming this, you simply need to go to the parts of this document which assume that you have not yet pushed and do them as normal. Then you need to do a "force push" `git push -f` to thrust your updated history upon everyone else. As you read in the reference, this may be denied by default by your upstream repository (see `git config receive.denyNonFastForwards`, but can be disabled (temporarily I suggest) if you have access to the server. You then will need to send mail to everyone who might have pulled the history telling them that history was rewritten and they need to `git pull --rebase` and do a bit of history rewriting of their own if they branched or tagged from the now outdated history.
+
+Proceed with [[fixing the old commit|Do you want to discard all unpushed changes on this branch?]].

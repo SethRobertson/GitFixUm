@@ -1,0 +1,3 @@
+node_modules/
+**/output/
+tiddlers/\$__StoryList.tid

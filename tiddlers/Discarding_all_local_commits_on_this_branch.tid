@@ -1,0 +1,7 @@
+created: 20150605222146810
+modified: 20150606060030165
+tags: Answers
+title: Discarding all local commits on this branch
+type: text/vnd.tiddlywiki
+
+In order to discard all local commits on this branch, to make the local branch identical to the "upstream" of this branch, simply run `git reset --hard @{u}`

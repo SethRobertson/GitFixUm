@@ -1,0 +1,13 @@
+created: 20150605220607986
+modified: 20150606133930557
+tags: Answers
+title: Reverting an old simple pushed commit
+type: text/vnd.tiddlywiki
+
+To create an positive commit to remove the effects of a simple (non-merge) commit, you must first identify the SHA of the commit you want to revert. {{FindingACommit}}
+
+```sh
+git revert SHA
+```
+
+Obviously replace "SHA" with the reference you want to revert. If you want to revert multiple SHA, you may specify a range or a list of SHA.

@@ -1,0 +1,11 @@
+created: 20150605213006215
+modified: 20150606060111915
+tags: Answers
+title: How to undo some uncommitted changes
+type: text/vnd.tiddlywiki
+
+So you have not yet committed and you want to undo some things, well `git status` will tell you exactly what you need to do. For example:
+
+{{SampleGitStatus}}
+
+However, the `git checkout` in file mode is a command that cannot be recovered from—the changes which are discarded most probably cannot be recovered. Perhaps you should run `git stash save -p "description"` instead, and select the changes you no longer want to be stashed instead of zapping them.

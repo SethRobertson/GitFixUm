@@ -1,0 +1,14 @@
+created: 20150606003058224
+modified: 20150606055913790
+tags: Questions
+title: Is the commit you want to fix the most recent?
+type: text/vnd.tiddlywiki
+
+While the techniques mentioned to deal with deeper commits will work on the most recent, there are some convenient shortcuts you can take with the most recent commit.
+
+* [[Yes, I want to change the most recent commit|Do you want to remove or change the commit message/contents of the last commit?]]
+* [[Yes, I want to discard the most recent commit(s)|Removing the last commit]]
+* [[Yes, I want to undo the last git operation(s) affecting the HEAD/tip of my branch (most useful for rebase, reset, or --amend)|Undoing the last few git operations affecting HEAD/my branch's tip]]
+* [[No, I want to change an older commit|Do you want to remove an entire commit?]]
+* [[No, I want to restore a older version of/deleted file as a new commit|Making a new commit to restore a file deleted earlier]]
+* [[Either way, I want to move a commit from one branch to another|Moving a commit from one branch to another]]

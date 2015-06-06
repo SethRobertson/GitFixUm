@@ -1,0 +1,7 @@
+created: 20150605220951394
+modified: 20150606060149818
+tags: Answers
+title: Making a new commit to fix an old commit
+type: text/vnd.tiddlywiki
+
+If the problem in the old commit is just something was done incorrectly, go ahead and make a normal commit to fix the problem. Feel free to reference the old commit SHA in the commit message, and if you are into the blame-based development methodology, make fun of the person who made the mistake (or someone who recently left if you made the mistake).
