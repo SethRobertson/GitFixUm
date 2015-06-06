@@ -1,0 +1,23 @@
+created: 20150606045637198
+modified: 20150606045850731
+tags: 
+title: SampleGitStatus
+type: text/vnd.tiddlywiki
+
+<pre>On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+      <span style="color: green">new file:   .gitignore</span>
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+      <span style="color: red">modified:   A</span>
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+      <span style="color: red">C</span>
+</pre>

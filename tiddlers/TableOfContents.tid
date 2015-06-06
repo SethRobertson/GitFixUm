@@ -1,0 +1,13 @@
+caption: {{$:/language/SideBar/Contents/Caption}}
+color: #66ccff
+created: 20150606052850055
+list: [[First step]] Questions Answers Comments Thanks Disclaimer Copyright About
+list-after: $:/core/ui/SideBar/Open
+modified: 20150606134323938
+tags: $:/tags/SideBar
+title: TableOfContents
+type: text/vnd.tiddlywiki
+
+<div class="tc-table-of-contents">
+<<toc-selective-expandable "TableOfContents">>
+</div>

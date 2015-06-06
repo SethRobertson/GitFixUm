@@ -1,0 +1,32 @@
+created: 20150606032514573
+modified: 20150606060213728
+tags: Answers
+title: Moving a commit from one branch to another
+type: text/vnd.tiddlywiki
+
+So, you have a commit which is in the wrong place and you want to move it from one branch to another. In order to do this, you will need to know the SHA of the first and last commit (in a continuous series of commits) you want to move (those values are the same if you are moving only one commit), the name of the branch you are moving the commit from, and the name of the branch you are moving the commit to. In the example below, I will name these four values $first, $last, $source, and $destination (respectively). Additionally, you will need to use a {{nonce}} branch as a placeholder. I will call the nonce branch "nonce" in the following example. However, you may use any branch name that is not currently in use. You can delete it immediately after you are done.
+
+```sh
+git branch nonce $last
+git rebase -p --onto $destination $first^ nonce
+```
+
+Remember that when you substitute $first in the command above, leave the "^" alone, it is literal.
+
+Use `gitk --all --date-order` to check to make sure the move looks correct (pretending that nonce is the destination branch). Please check very carefully if you were trying to move a merge, it may have been recreated improperly. If you //don't// like the result, you may delete the nonce branch (`git branch -D nonce`) and try again.
+
+However, if everything looks good, we can move the actual destination branch pointer to where nonce is:
+
+```sh
+git checkout $destination
+git reset --hard nonce
+git branch -d nonce
+```
+
+If you double-checked with `gitk --all --date-order`, you would see that the destination branch looks correct. However, the commits are still on the source branch as well. We can get rid of those now:
+
+```sh
+git rebase -p --onto $first^ $last $source
+```
+
+Using `gitk --all --date-order` one last time, you should now see that the commits on the source branch have gone away. You have successfully moved the commits. Please check very carefully if merges occurred after the commits which were deleted. They may have been recreated incorrectly. If so you can either [[undo the delete|Undoing the last few git operations affecting HEAD/my branch's tip]] or try to delete the bad merge and try to recreate it manually, or create a fake (`--ours`) merge from the same SHA so that git is aware that the merge occurred.

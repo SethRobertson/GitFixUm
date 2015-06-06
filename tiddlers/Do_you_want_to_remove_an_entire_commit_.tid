@@ -1,0 +1,8 @@
+created: 20150606031806104
+modified: 20150606055649013
+tags: Questions
+title: Do you want to remove an entire commit?
+type: text/vnd.tiddlywiki
+
+* [[Yes, I want to remove an entire commit|Removing an entire commit]]
+* [[No, I want to change an older commit|Do you want to remove/change/rename a particular file/directory from all commits during all of git's history]]

@@ -1,0 +1,7 @@
+created: 20150605220124213
+modified: 20150605220219158
+tags: 
+title: FindingACommit
+type: text/vnd.tiddlywiki
+
+You can do this using `gitk --date-order` or using `git log --graph --decorate --oneline` or perhaps `git log --oneline -- filename` You are looking for the 40 character SHA-1 hash ID (or the 7 character abbreviation). Yes, if you know the "^" or "~" shortcuts you may use those.

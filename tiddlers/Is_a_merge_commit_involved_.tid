@@ -1,0 +1,10 @@
+created: 20150606041758313
+modified: 20150606055901501
+tags: Questions
+title: Is a merge commit involved?
+type: text/vnd.tiddlywiki
+
+If the commit you are trying to change is a merge commit, or if there is a merge commit between the commit you are trying to change and the tip of the branch you are on, then you need to do some special handling of the situation.
+
+* [[Yes, a merge commit is involved|Changing a single commit involving a merge]]
+* [[No, only simple commits|Changing a single commit involving only simple commits]]

@@ -1,0 +1,9 @@
+created: 20150606034057154
+modified: 20150606040447496
+tags: 
+title: BestPractice
+type: text/vnd.tiddlywiki
+url: http://sethrobertson.github.com/GitBestPractices/
+
+\define ext-link(name, url) [[$name$|$url$]]
+<$macrocall $name="ext-link" name="best practice" url={{!!url}}/>

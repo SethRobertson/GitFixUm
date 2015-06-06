@@ -1,0 +1,11 @@
+created: 20150605221807755
+modified: 20150606055636555
+tags: Questions
+title: Do you want to discard all unpushed changes on this branch?
+type: text/vnd.tiddlywiki
+
+There is a shortcut in case you want to discard all changes made on this branch since you have last pushed or in any event, to make your local branch identical to "upstream". Upstream, for local tracking branches, is the place you get history from when you `git pull`: typically for master it might be origin/master. There is a variant of this option which lets you make your local branch identical to some other branch or ref.
+
+* [[Yes, I want to discard all unpushed changes|Discarding all local commits on this branch]]
+* [[Yes, and I want to make my branch identical to some non-upstream ref|Replacing all branch history/contents]]
+* [[No, I want to fix some unpushed changes|Is the commit you want to fix the most recent?]]

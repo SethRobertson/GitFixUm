@@ -1,0 +1,27 @@
+created: 20150606004401538
+modified: 20150606134015599
+tags: Answers
+title: Undoing the last few git operations affecting HEAD/my branch's tip
+type: text/vnd.tiddlywiki
+
+Practically every git operation which affects the repository is recorded in the `git reflog`. You may then use the reflog to look at the state of the branches at previous times or even go back to the state of the local branch at the time.
+
+While this happens for every git command affecting HEAD, it is usually most interesting when attempting to recover from a bad rebase or reset or an --amend'ed commit. There are better ways (listed by the rest of this document) from recovering from the more mundane reflog updates.
+
+The first thing you need to do is identify the SHA of the good state of your branch. You can do this by looking at the output of `git log -g` or, my preference, you can look graphically at `gitk --all --date-order $(git log -g --pretty=%H)`
+
+Once you have found the correct state of your branch, you can get back to that state by running
+
+```sh
+git reset --hard SHA
+```
+
+You could also link that old state to a new branch name using
+
+```sh
+git checkout -b newbranch SHA
+```
+
+Obviously replace "SHA" in both commands with the reference you want to get back to.
+
+Note that any other commits you have performed since you did that "bad" operation will then be lost. You could `git cherry-pick` or `git rebase -p --onto` those other commits over.

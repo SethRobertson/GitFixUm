@@ -1,0 +1,9 @@
+created: 20150606033828302
+modified: 20150606055503785
+tags: Answers
+title: Arbitrarily changing all commits during all of git's history
+type: text/vnd.tiddlywiki
+
+`git filter-branch` is a powerful, complex command that allows you to perform arbitary scriptable operations on all commits in git repository history. This flexibility can make it quite slow on big repos, and makes using the command quite difficult, so I will simply point you at the {{ManualPage}} and remind you that {{BestPractice}} is to always use `--tag-name-filter cat -- --all` unless you are really sure you know what you are doing.
+
+BTW, this is the one command I referred to earlier which will update all tags and branches, at least if you use the best practice arguments.

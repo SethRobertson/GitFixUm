@@ -1,0 +1,17 @@
+created: 20150606041847072
+modified: 20150606055950213
+tags: Answers
+title: Changing a single commit involving only simple commits
+type: text/vnd.tiddlywiki
+
+You must first identify the SHA of the commit you wish to remove. {{FindingACommit}}
+
+```sh
+git rebase -i SHA^
+```
+
+Obviously replace "SHA" with the reference you want to get rid of. The "^" in that command is literal.
+
+You will be dumped in an editor with a bunch of lines starting with pick. The oldest commit, the one you are probably interested in changing, is first. You will want to change the "pick" to "reword" or "edit", or perhaps even "squash" depending on what your goal is. Please read the {{ManualPage}} for more information. A document on [[Post-Production Editing using Git|http://sethrobertson.github.com/GitPostProduction/]] goes through much of the major uses of `git rebase` is some detail. The use case is a little different, but the fundamental techniques are not.
+
+When using "edit", to change contents or author, when you are dumped into the shell to make your change, well make your change, `git add` as normal, and then run `git commit --amend` (including changing the author information with `--author`). When you are satisfied, you should run `git rebase --continue`

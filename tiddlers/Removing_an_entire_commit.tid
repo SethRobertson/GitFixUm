@@ -1,0 +1,15 @@
+created: 20150606031856578
+modified: 20150606133826057
+tags: Answers
+title: Removing an entire commit
+type: text/vnd.tiddlywiki
+
+I call this operation //cherry-pit// since it is the inverse of a //cherry-pick//. {{FindingACommit}}
+
+```sh
+git rebase -p --onto SHA^ SHA
+```
+
+Obviously replace "SHA" with the reference you want to get rid of. The "^" in that command is literal.
+
+However, please be warned. If some of the commits between SHA and the tip of your branch are merge commits, it is possible that `git rebase -p` will be unable to properly recreate them. Please inspect the resulting merge topology `gitk --date-order HEAD ORIG_HEAD` and contents to ensure that git did want you wanted. If it did not, there is not really any automated recourse. You can reset back to the commit before the SHA you want to get rid of, and then cherry-pick the normal commits and manually re-merge the //bad// merges. Or you can just suffer with the inappropriate topology (perhaps creating fake merges `git merge --ours otherbranch` so that subsequent development work on those branches will be properly merged in with the correct merge-base).

@@ -1,0 +1,9 @@
+created: 20150605212624370
+modified: 20150606060059196
+tags: Answers
+title: How to undo all uncommitted changes
+type: text/vnd.tiddlywiki
+
+So you have not yet committed and you want to undo everything. Well, {{BestPractice}} is for you to stash the changes in case you were mistaken and later decide that you really wanted them after all. `git stash save "description of changes"`. You can revisit those stashes later `git stash list` and decide whether to `git stash drop` them after some time has past. Please note that untracked and ignored files are not stashed by default. See "--include-untracked" and "--all" for stash options to handle those two cases.
+
+However, perhaps you are confident (or arrogant) enough to know for sure that you will never ever want the uncommitted changes. If so, you can run `git reset --hard`, however please be quite aware that this is almost certainly a completely unrecoverable operation. Any changes which are removed here cannot be restored later. This will not delete untracked or ignored files. Those can be deleted with `git clean -nd` or `git clean -ndX` respectively, or `git clean -ndx` for both at once. Well, actually those command do not delete the files. They show what files will be deleted. Replace the "n" in "-nd…" with "f" to actually delete the files. {{BestPractice}} is to ensure you are not deleting what you should not by looking at the moribund filenames first.

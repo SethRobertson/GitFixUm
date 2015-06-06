@@ -1,0 +1,11 @@
+created: 20150605130505209
+modified: 20150606055431278
+order: 1
+tags: Questions
+title: Are you trying to find that which is lost or fix a change that was made?
+type: text/vnd.tiddlywiki
+
+Due to previous activities (thrashing about), you may have lost some work which you would like to find and restore. Alternately, you may have made some changes which you would like to fix. Fixing includes updating, rewording, and deleting or discarding.
+
+* [[Fix a change|Have you committed?]]
+* [[Find what is lost|I have lost some commits I know I made]]

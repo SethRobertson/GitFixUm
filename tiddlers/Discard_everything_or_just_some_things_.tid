@@ -1,0 +1,12 @@
+created: 20150605132914983
+modified: 20150606055608329
+order: 3
+tags: Questions
+title: Discard everything or just some things?
+type: text/vnd.tiddlywiki
+
+So you have not yet committed, the question is now whether you want to undo everything which you have done since the last commit or just some things, or just save what you have done?
+
+* [[Discard everything|How to undo all uncommitted changes]]
+* [[Discard some things|How to undo some uncommitted changes]]
+* [[I want to save my changes|How to save uncommitted changes]]

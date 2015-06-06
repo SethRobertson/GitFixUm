@@ -1,0 +1,17 @@
+created: 20150605222251580
+modified: 20150606133857957
+tags: Answers
+title: Replacing all branch history/contents
+type: text/vnd.tiddlywiki
+
+If instead of discarding all local commits, you can make your branch identical to some other branch, tag, ref, or SHA that exists on your system.
+
+The first thing you need to do is identify the SHA or ref of the good state of your branch. {{FindingACommit}}
+
+Once you have found the correct state of your branch, you can get to that state by running:
+
+```sh
+git reset --hard REF
+```
+
+Obviously replace "REF" with the reference or SHA you want to get back to.

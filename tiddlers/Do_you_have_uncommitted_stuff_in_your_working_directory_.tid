@@ -1,0 +1,13 @@
+created: 20150605212049691
+modified: 20150606055622042
+tags: Questions
+title: Do you have uncommitted stuff in your working directory?
+type: text/vnd.tiddlywiki
+
+So you have committed. However, before we go about fixing or removing whatever is wrong, you should first ensure that any uncommitted changes are safe, by either committing them (`git commit`) or by stashing them (`git stash save "message"`) or getting rid of them.
+
+`git status` will help you understand whether your working directory is clean or not. It should report nothing for perfect safety ("Untracked files" only are sometimes safe.)
+
+* [[No, I have no changes/working directory is clean|Have you pushed?]]
+* [[Yes, I have bad changes/working directory is dirty: discard it|How to undo uncommitted changes]]
+* [[Yes, I have good changes/working directory is dirty: save it|How to save uncommitted changes]]
