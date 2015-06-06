@@ -1,0 +1,23 @@
+{
+  "name": "git-fix-um",
+  "version": "1.0.0",
+  "description": "On undoing, fixing, or removing commits or mistakes in git ",
+  "private": true,
+  "scripts": {
+    "start": "tiddlywiki wiki --server",
+    "build": "tiddlywiki wiki-dist --rendertiddler '$:/core/save/all' index.html text/plain"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SethRobertson/GitFixUm.git"
+  },
+  "author": "Devin Weaver <suki@tritarget.org> (http://tritarget.org/)",
+  "license": "CC BY-SA 3.0",
+  "bugs": {
+    "url": "https://github.com/SethRobertson/GitFixUm/issues"
+  },
+  "homepage": "http://sethrobertson.github.io/GitFixUm/fixup.html",
+  "devDependencies": {
+    "tiddlywiki": "^5.1.8"
+  }
+}
