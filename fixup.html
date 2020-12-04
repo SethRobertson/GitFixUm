@@ -38,7 +38,7 @@ function crumbListShow()
   crumbHTML = '';
   for(var i in this.links)
   {
-    crumbHTML += ((i==0)?"Path: ":delim) +"<a href='" + this.links[i] + "' onclick=\"return(crumbs.both('"+this.links[i]+"','"+this.text[i]+"'));\">" + this.text[i] + "</a>";
+    crumbHTML += ((i==0)?"How I Got Here: ":delim) +"<a href='" + this.links[i] + "' onclick=\"return(crumbs.both('"+this.links[i]+"','"+this.text[i]+"'));\">" + this.text[i] + "</a>";
   }
   var dests = document.getElementsByName("crumbs");
   for (i=0; i < dests.length; i++)
