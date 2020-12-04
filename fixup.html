@@ -60,7 +60,7 @@ var crumbs = new CrumbList();
     <div id='content'>
       <h1><a href="http://sethrobertson.github.com/GitFixUm/">On undoing, fixing, or removing commits in git</a></h1>
 
-    <div name="crumbs"></div>
+    <div class="crumbs"></div>
 
 <p>A git <a href="#nonaffil">choose-your-own-adventure!ⓡ</a></p>
 
@@ -113,7 +113,7 @@ includes updating, rewording, and deleting or discarding.</p>
 </ul>
 
 
-<p><a name="committedp" /></p><div name="crumbs"></div>
+<p><a name="committedp" /></p><div class="crumbs"></div>
 
 <h2>Have you committed?</h2>
 
@@ -129,7 +129,7 @@ to undo what you have done.</p>
 </ul>
 
 
-<p><a name="uncommitted" /></p><div name="crumbs"></div>
+<p><a name="uncommitted" /></p><div class="crumbs"></div>
 
 <h2>Discard everything or just some things?</h2>
 
@@ -144,7 +144,7 @@ some things, or just save what you have done?</p>
 </ul>
 
 
-<p><a name="uncommitted_commit" /></p><div name="crumbs"></div>
+<p><a name="uncommitted_commit" /></p><div class="crumbs"></div>
 
 <h2>How to save uncommitted changes</h2>
 
@@ -166,7 +166,7 @@ changes to make multiple commits is left as an exercise for the
 reader.</p>
 
 
-<p><a name="uncommitted_everything" /></p><div name="crumbs"></div>
+<p><a name="uncommitted_everything" /></p><div class="crumbs"></div>
 
 <h2>How to undo all uncommitted changes</h2>
 
@@ -198,7 +198,7 @@ files.  <a href="http://sethrobertson.github.com/GitBestPractices/">Best
 practice</a> is to ensure you are not deleting what you should not by
 looking at the moribund filenames first.</p>
 
-<p><a name="uncommitted_somethings" /></p><div name="crumbs"></div>
+<p><a name="uncommitted_somethings" /></p><div class="crumbs"></div>
 
 <h2>How to undo some uncommitted changes</h2>
 
@@ -233,7 +233,7 @@ run <code class="inline">git stash save -p "description"</code>
 instead, and select the changes you no longer want to be stashed
 instead of zapping them.</p>
 
-<p><a name="committed" /></p><div name="crumbs"></div>
+<p><a name="committed" /></p><div class="crumbs"></div>
 
 <h2>Do you have uncommitted stuff in your working directory?</h2>
 
@@ -259,7 +259,7 @@ safe.)</p>
 </ul>
 
 
-<p><a name="committed_really" /></p><div name="crumbs"></div>
+<p><a name="committed_really" /></p><div class="crumbs"></div>
 
 <h2>Have you pushed?</h2>
 
@@ -293,7 +293,7 @@ with immediate pruning.</p>
 </ul>
 
 
-<p><a name="unpushed" /></p><div name="crumbs"></div>
+<p><a name="unpushed" /></p><div class="crumbs"></div>
 
 <h2>Do you want to discard all unpushed changes on this branch?</h2>
 
@@ -312,7 +312,7 @@ you make your local branch identical to some other branch or ref.</p>
 </ul>
 
 
-<p><a name="discard_all_unpushed" /></p><div name="crumbs"></div>
+<p><a name="discard_all_unpushed" /></p><div class="crumbs"></div>
 
 <h2>Discarding all local commits on this branch</h2>
 
@@ -320,7 +320,7 @@ you make your local branch identical to some other branch or ref.</p>
 local branch identical to the "upstream" of this branch, simply run
 <code class="inline">git reset --hard @{u}</code></p>
 
-<p><a name="replace_all_unpushed" /></p><div name="crumbs"></div>
+<p><a name="replace_all_unpushed" /></p><div class="crumbs"></div>
 
 <h2>Replacing all branch history/contents</h2>
 
@@ -345,7 +345,7 @@ git reset --hard REF
 <p>Obviously replace "REF" with the reference or SHA you want to get
 back to.</p>
 
-<p><a name="fix_unpushed" /></p><div name="crumbs"></div>
+<p><a name="fix_unpushed" /></p><div class="crumbs"></div>
 
 <h2>Is the commit you want to fix the most recent?</h2>
 
@@ -363,7 +363,7 @@ take with the most recent commit.</p>
 </ul>
 
 
-<p><a name="change_last" /></p><div name="crumbs"></div>
+<p><a name="change_last" /></p><div class="crumbs"></div>
 
 <h2>Do you want to remove or change the commit message/contents of the last commit?</h2>
 
@@ -374,7 +374,7 @@ take with the most recent commit.</p>
 </ul>
 
 
-<p><a name="remove_last" /></p><div name="crumbs"></div>
+<p><a name="remove_last" /></p><div class="crumbs"></div>
 
 <h2>Removing the last commit</h2>
 
@@ -397,7 +397,7 @@ newbranchname</code> <em>before</em> doing
 the <code class="inline">git reset</code>.</p>
 
 
-<p><a name="rework_last" /></p><div name="crumbs"></div>
+<p><a name="rework_last" /></p><div class="crumbs"></div>
 
 <h2>Reworking the last commit</h2>
 
@@ -425,7 +425,7 @@ explore <a href="http://sethrobertson.github.com/GitPostProduction">Post
 Production Editing Using Git</a>.</p>
 
 
-<p><a name="move_commit" /></p><div name="crumbs"></div>
+<p><a name="move_commit" /></p><div class="crumbs"></div>
 
 <h2>Moving a commit from one branch to another</h2>
 
@@ -489,7 +489,7 @@ manually, or create a fake (--ours) merge from the same SHA so that
 git is aware that the merge occurred.</p>
 
 
-<p><a name="update_last" /></p><div name="crumbs"></div>
+<p><a name="update_last" /></p><div class="crumbs"></div>
 
 <h2>Updating the last commit's contents or commit message</h2>
 
@@ -517,7 +517,7 @@ allows, please investigate <a href="#rework_last">reworking</a> the
 last commit.</p>
 
 
-<p><a name="change_deep" /></p><div name="crumbs"></div>
+<p><a name="change_deep" /></p><div class="crumbs"></div>
 
 <h2>Do you want to remove an entire commit?</h2>
 
@@ -527,7 +527,7 @@ last commit.</p>
 </ul>
 
 
-<p><a name="remove_deep" /></p><div name="crumbs"></div>
+<p><a name="remove_deep" /></p><div class="crumbs"></div>
 
 <h2>Removing an entire commit</h2>
 
@@ -560,7 +560,7 @@ merges <code class="inline">git merge --ours otherbranch</code> so
 that subsequent development work on those branches will be properly
 merged in with the correct merge-base).</p>
 
-<p><a name="modify_deep" /></p><div name="crumbs"></div>
+<p><a name="modify_deep" /></p><div class="crumbs"></div>
 
 <h2>Do you want to remove/change/rename a particular file/directory from all commits during all of git's history</h2>
 
@@ -569,7 +569,7 @@ merged in with the correct merge-base).</p>
 <li><a  href="#change_single_deep" onclick="return(crumbs.both('#change_single_deep',this.innerHTML));">No, I only want to change a single commit</a></li>
 </ul>
 
-<p><a name="bulk_rewrite_history" /></p><div name="crumbs"></div>
+<p><a name="bulk_rewrite_history" /></p><div class="crumbs"></div>
 
 <h2>Changing all commits during all of git's history</h2>
 
@@ -581,7 +581,7 @@ all of git's history?  Strange.</p>
 <li><a  href="#bfg" onclick="return(crumbs.both('#bfg',this.innerHTML));">Want to only remove unwanted data (big files, private data, etc) and am willing to use a third party tool to do the job more quickly</a></li>
 </ul>
 
-<p><a name="bfg" /></p><div name="crumbs"></div>
+<p><a name="bfg" /></p><div class="crumbs"></div>
 
 <h2>Use The BFG to remove unwanted data, like big files or passwords,
 from Git repository history.</h2>
@@ -608,7 +608,7 @@ wherever they occur in your repository :</p>
 $ bfg <strong>--replace-text passwords.txt</strong>  my-repo.git
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
-<p><a name="filterbranch" /></p><div name="crumbs"></div>
+<p><a name="filterbranch" /></p><div class="crumbs"></div>
 
 <h2>Arbitrarily changing all commits during all of git's history</h2>
 
@@ -627,7 +627,7 @@ doing.</p>
 update all tags and branches, at least if you use the best practice
 arguments.</p>
 
-<p><a name="change_single_deep" /></p><div name="crumbs"></div>
+<p><a name="change_single_deep" /></p><div class="crumbs"></div>
 
 <h2>Is a merge commit involved?</h2>
 
@@ -642,7 +642,7 @@ handling of the situation.</p>
 </ul>
 
 
-<p><a name="change_single_deep_simple" /></p><div name="crumbs"></div>
+<p><a name="change_single_deep_simple" /></p><div class="crumbs"></div>
 
 <h2>Changing a single commit involving only simple commits</h2>
 
@@ -679,7 +679,7 @@ the author information with --author).  When you are satisfied, you
 should run <code class="inline">git rebase --continue</code></p>
 
 
-<p><a name="change_single_deep_merge" /></p><div name="crumbs"></div>
+<p><a name="change_single_deep_merge" /></p><div class="crumbs"></div>
 
 <h2>Changing a single commit involving a merge</h2>
 
@@ -770,7 +770,7 @@ nonce</code></p></li>
 </ul>
 
 
-<p><a name="pushed" /></p><div name="crumbs"></div>
+<p><a name="pushed" /></p><div class="crumbs"></div>
 
 <h2>Can you make a positive commit to fix the problem and what is the fix class?</h2>
 
@@ -791,7 +791,7 @@ commit which undoes what the commit target of the revert did.</p>
 </ul>
 
 
-<p><a name="pushed_fixit" /></p><div name="crumbs"></div>
+<p><a name="pushed_fixit" /></p><div class="crumbs"></div>
 
 <h2>Making a new commit to fix an old commit</h2>
 
@@ -802,7 +802,7 @@ if you are into the blame-based development methodology, make fun of
 the person who made the mistake (or someone who recently left if you
 made the mistake).</p>
 
-<p><a name="pushed_restore_file" /></p><div name="crumbs"></div>
+<p><a name="pushed_restore_file" /></p><div class="crumbs"></div>
 
 <h2>Making a new commit to restore a file deleted earlier</h2>
 
@@ -825,7 +825,7 @@ git checkout SHA -- path/to/filename
 <p>Obviously replace "SHA" with the reference that is good.
 You can then add and commit as normal to fix the problem.</p>
 
-<p><a name="pushed_new_simple" /></p><div name="crumbs"></div>
+<p><a name="pushed_new_simple" /></p><div class="crumbs"></div>
 
 <h2>Reverting an old simple pushed commit</h2>
 
@@ -845,7 +845,7 @@ git revert SHA
 you want to revert multiple SHA, you may specify a range or a list of
 SHA.</p>
 
-<p><a name="pushed_new_merge" /></p><div name="crumbs"></div>
+<p><a name="pushed_new_merge" /></p><div class="crumbs"></div>
 
 <h2>Reverting a merge commit</h2>
 
@@ -932,7 +932,7 @@ However, if you look at <a href="https://www.kernel.org/pub/software/scm/git/doc
 (also shipped as part of the git distribution) it will provide more words
 than you can shake a stick at.</p>
 
-<p><a name="branch_overlay_merge" /></p><div name="crumbs"></div>
+<p><a name="branch_overlay_merge" /></p><div class="crumbs"></div>
 
 <h2>Rewriting an old branch with a new branch with a new commit</h2>
 
@@ -979,7 +979,7 @@ git commit -m "Rewrite $destination with $source"
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
 
-<p><a name="pushed_old" /></p><div name="crumbs"></div>
+<p><a name="pushed_old" /></p><div class="crumbs"></div>
 
 <h2>I am a bad person and must rewrite published history</h2>
 
@@ -1002,7 +1002,7 @@ outdated history.</p>
 
 <p>Proceed with <a  href="#unpushed" onclick="return(crumbs.both('#unpushed',this.innerHTML));">fixing the old commit</a>.</p>
 
-<p><a name="lostnfound" /></p><div name="crumbs"></div>
+<p><a name="lostnfound" /></p><div class="crumbs"></div>
 
 <h2>I have lost some commits I know I made</h2>
 
@@ -1064,7 +1064,7 @@ non-index commit in a git-stash), you can <code class="inline">git
 stash merge SHA</code> or <code class="inline">git cherry-pick
 SHA</code> (for either part of a stash or non-stashes), etc.</p>
 
-<p><a name="undo_tip" /></p><div name="crumbs"></div>
+<p><a name="undo_tip" /></p><div class="crumbs"></div>
 
 <h2>Undoing the last few git operations affecting HEAD/my branch's tip</h2>
 
@@ -1106,7 +1106,7 @@ want to get back to.</p>
 cherry-pick</code> or <code class="inline">git rebase -p --onto</code>
 those other commits over.</p>
 
-<p><a name="badmerge" /></p><div name="crumbs"></div>
+<p><a name="badmerge" /></p><div class="crumbs"></div>
 
 <h2>Recovering from a borked/stupid/moribund merge</h2>
 
@@ -1117,7 +1117,7 @@ to get out of the merge.</p>
 <p>The fastest way out of the merge is <code class="inline">git merge
 --abort</code></p>
 
-<p><a name="badrebase" /></p><div name="crumbs"></div>
+<p><a name="badrebase" /></p><div class="crumbs"></div>
 
 <h2>Recovering from a borked/stupid/moribund rebase</h2>
 
@@ -1128,7 +1128,7 @@ to get out of the merge.</p>
 <p>The fastest way out of the merge is <code class="inline">git rebase
 --abort</code></p>
 
-<p><a name="disclaimer" /></p><div name="crumbs"></div>
+<p><a name="disclaimer" /></p><div class="crumbs"></div>
 
 <h2>Disclaimer</h2>
 
@@ -1142,7 +1142,7 @@ information. Accordingly, you should confirm the accuracy and
 completeness of all posted information before making any decision
 related to any and all matters described.</p>
 
-<p><a name="copyright" /></p><div name="crumbs"></div>
+<p><a name="copyright" /></p><div class="crumbs"></div>
 
 <h2>Copyright</h2>
 
@@ -1168,14 +1168,14 @@ maintained back to the <a href="http://sethrobertson.github.com/GitFixUm/">autho
 Good books, but a little light on the details of recovering from git
 merge errors to my taste.</p>
 
-<p><a name="thanks" /></p><div name="crumbs"></div>
+<p><a name="thanks" /></p><div class="crumbs"></div>
 
 <h2>Thanks</h2>
 
 <p>Thanks to the experts on #git and my coworkers for review, feedback,
 and ideas.</p>
 
-<p><a name="comments" /></p><div name="crumbs"></div>
+<p><a name="comments" /></p><div class="crumbs"></div>
 
 <h2>Comments</h2>
 
