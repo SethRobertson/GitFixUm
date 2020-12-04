@@ -40,7 +40,7 @@ function crumbListShow()
   {
     crumbHTML += ((i==0)?"How I Got Here: ":delim) +"<a href='" + this.links[i] + "' onclick=\"return(crumbs.both('"+this.links[i]+"','"+this.text[i]+"'));\">" + this.text[i] + "</a>";
   }
-  var dests = document.getElementsByName("crumbs");
+  var dests = document.getElementsByClassName("crumbs");
   for (i=0; i < dests.length; i++)
   {
     dests[i].innerHTML = crumbHTML;
