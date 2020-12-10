@@ -30,6 +30,7 @@ function CrumbList()
 }
 function crumbListAdd(href,text)
 {
+  if(href == this.links[this.links.length - 1]) return;
   this.links[this.links.length]=href;
   this.text[this.text.length]=text;
 }
