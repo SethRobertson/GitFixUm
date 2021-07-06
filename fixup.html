@@ -58,7 +58,7 @@ var crumbs = new CrumbList();
   </head>
   <body>
     <div id='content'>
-      <h1><a href="http://sethrobertson.github.com/GitFixUm/">On undoing, fixing, or removing commits in git</a></h1>
+      <h1><a href="https://sethrobertson.github.io/GitFixUm/">On undoing, fixing, or removing commits in git</a></h1>
 
     <div class="crumbs"></div>
 
@@ -83,7 +83,7 @@ were trying to do, and that you at least tried to help yourself.</p>
 <h2>First step</h2>
 
 <p>Strongly consider taking a
-<a href="http://sethrobertson.github.com/GitBestPractices/#backups">backup</a>
+<a href="https://sethrobertson.github.io/GitBestPractices/#backups">backup</a>
 of your current working directory and .git to avoid any possibility of
 losing data as a result of the use or misuse of these instructions. We
 promise to laugh at you if you fail to take a backup and regret it
@@ -149,7 +149,7 @@ some things, or just save what you have done?</p>
 <h2>How to save uncommitted changes</h2>
 
 <p>There are five ways you can save your uncommitted change.  I also
-suggest you read <a href="http://git-scm.com/book/">Pro Git</a> as these
+suggest you read <a href="https://git-scm.com/book/">Pro Git</a> as these
 are pretty basic git operations.</p>
 
 <table>
@@ -171,7 +171,7 @@ reader.</p>
 <h2>How to undo all uncommitted changes</h2>
 
 <p>So you have not yet committed and you want to undo everything.
-Well, <a href="http://sethrobertson.github.com/GitBestPractices/">best
+Well, <a href="https://sethrobertson.github.io/GitBestPractices/">best
 practice</a> is for you to stash the changes in case you were mistaken
 and later decide that you really wanted them after
 all. <code class="inline">git stash save "description of
@@ -194,7 +194,7 @@ or <code class="inline">git clean -ndx</code> for both at once.  Well,
 actually those command do not delete the files.  They show what files
 will be deleted.  Replace the "n" in "-nd…" with "f" to actually
 delete the
-files.  <a href="http://sethrobertson.github.com/GitBestPractices/">Best
+files.  <a href="https://sethrobertson.github.io/GitBestPractices/">Best
 practice</a> is to ensure you are not deleting what you should not by
 looking at the moribund filenames first.</p>
 
@@ -421,7 +421,7 @@ you want.</p>
 
 <p>If you want to reorder commits, split them, merge them together, or
 otherwise perfect the commits, you should
-explore <a href="http://sethrobertson.github.com/GitPostProduction">Post
+explore <a href="https://sethrobertson.github.io/GitPostProduction">Post
 Production Editing Using Git</a>.</p>
 
 
@@ -437,7 +437,7 @@ are moving only one commit), the name of the branch you are moving the
 commit from, and the name of the branch you are moving the commit to.
 In the example below, I will name these four values $first, $last,
 $source, and $destination (respectively).  Additionally, you will need
-to use a <a href="http://en.wiktionary.org/wiki/nonce">nonce</a>
+to use a <a href="https://en.wiktionary.org/wiki/nonce">nonce</a>
 branch as a placeholder.  I will call the nonce branch "nonce" in the
 following example.  However, you may use any branch name that is not
 currently in use.  You can delete it immediately after you are
@@ -590,12 +590,12 @@ from Git repository history.</h2>
 (including for safety or usability for any purpose), but recognizes
 the need which this tool fills for large repositories.</p>
 
-<p><a href="http://rtyley.github.io/bfg-repo-cleaner/">The BFG</a> is a simpler,
+<p><a href="https://rtyley.github.io/bfg-repo-cleaner/">The BFG</a> is a simpler,
 faster alternative to <code class="inline">git filter-branch</code>,
 specifically designed for cleansing bad data out of your Git repository
 history - it operates over all branches and tags in your project to
 purge data you don't want retained <strong>anywhere</strong>. Some
-<a href="http://rtyley.github.io/bfg-repo-cleaner/#examples">examples</a>:</p>
+<a href="https://rtyley.github.io/bfg-repo-cleaner/#examples">examples</a>:</p>
 
 <p>Remove all blobs bigger than 1 megabyte (to make your repo take up less space):</p>
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
@@ -616,9 +616,9 @@ $ bfg <strong>--replace-text passwords.txt</strong>  my-repo.git
 command that allows you to perform arbitary scriptable operations on all
 commits in git repository history.  This flexibility can make it quite slow
 on big repos, and makes using the command quite difficult, so I will simply
-point you at the <a href="http://jk.gs/git-filter-branch.html">manual page</a>
+point you at the <a href="https://gitirc.eu/git-filter-branch.html">manual page</a>
 and remind you
-that <a href="http://sethrobertson.github.com/GitBestPractices/">best
+that <a href="https://sethrobertson.github.io/GitBestPractices/">best
 practice</a> is to always use <code>"--tag-name-filter cat --
 --all"</code> unless you are really sure you know what you are
 doing.</p>
@@ -664,9 +664,9 @@ The "&#94;" in that command is literal.</p>
 pick.  The oldest commit, the one you are probably interested in
 changing, is first.  You will want to change the "pick" to "reword" or
 "edit", or perhaps even "squash" depending on what your goal is.
-Please read the <a href="http://jk.gs/git-rebase.html">manual page</a>
+Please read the <a href="https://gitirc.eu/git-rebase.html">manual page</a>
 for more information.  A document
-on <a href="http://sethrobertson.github.com/GitPostProduction/">Post-Production
+on <a href="https://sethrobertson.github.io/GitPostProduction/">Post-Production
 Editing using Git</a> goes through much of the major uses of git
 rebase is some detail.  The use case is a little different, but the
 fundamental techniques are not.</p>
@@ -689,7 +689,7 @@ should use <a href="#change_single_deep_simple" onclick="return(crumbs.both('#ch
 
 <p>Oh dear.  This is going to get a little complicated.  It should all
 work out, though.  You will need to use
-a <a href="http://en.wiktionary.org/wiki/nonce">nonce</a> branch as a
+a <a href="https://en.wiktionary.org/wiki/nonce">nonce</a> branch as a
 placeholder.  I will call the nonce branch "nonce" in the following
 example.  However, you may use any branch name that is not currently
 in use.  You can delete it immediately after you are done.</p>
@@ -774,7 +774,7 @@ nonce</code></p></li>
 
 <h2>Can you make a positive commit to fix the problem and what is the fix class?</h2>
 
-<p><a href="http://sethrobertson.github.com/GitBestPractices/#pubonce">Rewriting
+<p><a href="https://sethrobertson.github.io/GitBestPractices/#pubonce">Rewriting
 public history is a bad idea</a>.  It requires everyone else to do
 special things and you must publicly announce your failure.  Ideally
 you will create either a commit to just fix the problem, or a
@@ -1152,16 +1152,16 @@ related to any and all matters described.</p>
 two licenses.  You may pick the license you prefer.</p>
 
 <p>Creative Commons Attribution-ShareAlike 3.0 Generic (CC BY-SA 3.0)
-http://creativecommons.org/licenses/by-sa/3.0/</p>
+https://creativecommons.org/licenses/by-sa/3.0/</p>
 
 <p>OR</p>
 
 <p>GNU Free Documentation v1.3 with no Invariant, Front, or Back Cover texts.
-http://www.gnu.org/licenses/fdl.html</p>
+https://www.gnu.org/licenses/fdl.html</p>
 
 <p>I would appreciate changes being sent back to me, being notified if
 this is used or highlighted in some special way, and links being
-maintained back to the <a href="http://sethrobertson.github.com/GitFixUm/">authoritative source</a>.  Thanks.</p>
+maintained back to the <a href="https://sethrobertson.github.io/GitFixUm/">authoritative source</a>.  Thanks.</p>
 
 <p><a name="nonaffil" /></p>
 <p>Not affiliated with Chooseco, LLC's "Choose Your Own Adventure"ⓡ.
@@ -1244,7 +1244,7 @@ is at the top of the page.</p>
 <p>Hopefully that should do it.</p>
 
     </div>
-    <div id='footer'><p><a href="http://sethrobertson.github.com">Other technical projects</a></p></div>
+    <div id='footer'><p><a href="https://sethrobertson.github.io">Other technical projects</a></p></div>
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
@@ -1253,7 +1253,7 @@ is at the top of the page.</p>
 
       (function() {
 	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
