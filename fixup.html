@@ -540,7 +540,7 @@ hash ID (or the 7 character abbreviation).  Yes, if you know the "^"
 or "~" shortcuts you may use those.</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
-git rebase -p --onto SHA^ SHA
+git rebase -r --onto SHA^ SHA
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
 <p>Obviously replace "SHA" with the reference you want to get rid of.
@@ -548,7 +548,7 @@ The "^" in that command is literal.</p>
 
 <p>However, please be warned.  If some of the commits between SHA and
 the tip of your branch are merge commits, it is possible
-that <code class="inline">git rebase -p</code> will be unable to
+that <code class="inline">git rebase -r</code> will be unable to
 properly recreate them.  Please inspect the resulting merge
 topology <code class="inline">gitk --date-order HEAD ORIG_HEAD</code>
 and contents to ensure that git did want you wanted.  If it did not,
