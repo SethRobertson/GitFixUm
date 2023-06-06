@@ -445,7 +445,7 @@ done.</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
 git branch nonce $last
-git rebase -p --onto $destination $first^ nonce
+git rebase -r --onto $destination $first^ nonce
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
 <p>Remember that when you substitute $first in the command above, leave
@@ -474,7 +474,7 @@ We can get rid of those now:</p>
 
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
-git rebase -p --onto $first^ $last $source
+git rebase -r --onto $first^ $last $source
 </code></pre><div class="befaftpre"><!-- --></div></div>
 
 <p>Using <code class="inline">gitk --all --date-order</code> one last
@@ -744,13 +744,13 @@ message reflects that.</p></li>
 <p>Remembering to substitute the correct branch name for $master</p>
 
 <div class="prediv"><div class="befaftpre"><!-- --></div><pre><code>
-git rebase -p --onto $(git rev-parse nonce) HEAD^ $master
+git rebase -r --onto $(git rev-parse nonce) HEAD^ $master
 </code></pre><div class="befaftpre"><!-- --></div></div></li>
 <li><p>Validate that the topology is still good</p>
 
 <p>If some of the commits after the commit you changed are merge
 commits, please be warned.  It is possible
-that <code class="inline">git rebase -p</code> will be unable to
+that <code class="inline">git rebase -r</code> will be unable to
 properly recreate them.  Please inspect the resulting merge
 topology <code class="inline">gitk --date-order HEAD ORIG_HEAD</code>
 to ensure that git did want you wanted.  If it did not, there is not
@@ -896,7 +896,7 @@ into the source; if your development style is to keep branches clean,
 this may be undesirable, and if you rebase your branches (e.g. with
 <code class="inline">git pull --rebase</code>), it could cause
 complications unless you are careful to use <code class="inline">git
-rebase -p</code> to preserve merges.</p>
+rebase -r</code> to rebase merges (formerly known as preserving merges).</p>
 
 <p>In the following example please replace $destination with the name
 of the branch that was the destination of the bad merge, $source
@@ -1103,7 +1103,7 @@ want to get back to.</p>
 
 <p>Note that any other commits you have performed since you did that
 "bad" operation will then be lost.  You could <code class="inline">git
-cherry-pick</code> or <code class="inline">git rebase -p --onto</code>
+cherry-pick</code> or <code class="inline">git rebase -r --onto</code>
 those other commits over.</p>
 
 <p><a name="badmerge" /></p><div class="crumbs"></div>
